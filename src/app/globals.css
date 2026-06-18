@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --header-h: 76px;
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    font-feature-settings: "ss01", "cv01";
+  }
+  ::selection {
+    @apply bg-gold/25 text-ink;
+  }
+  /* Honor reduced-motion across the whole site */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-gold ring-offset-2 ring-offset-paper;
+  }
+}
+
+@layer components {
+  /* The chapter marker — the site's signature device. Encodes the real
+     sequence of a journey (Dream 01 / Plan 02 / Go 03 / Remember 04). */
+  .eyebrow {
+    @apply inline-flex items-center gap-2.5 text-[0.72rem] font-semibold uppercase tracking-eyebrow text-gold;
+  }
+  .eyebrow::before {
+    content: "";
+    @apply h-px w-7 bg-gold/60;
+  }
+  .chapter-no {
+    @apply font-display text-sm font-semibold text-clay;
+    font-feature-settings: "tnum";
+  }
+
+  .display-1 {
+    @apply font-display font-semibold leading-[0.98] tracking-[-0.01em];
+    font-size: clamp(2.6rem, 6vw + 0.5rem, 5.4rem);
+    font-variation-settings: "opsz" 144, "SOFT" 40, "WONK" 1;
+  }
+  .display-2 {
+    @apply font-display font-semibold leading-[1.04] tracking-[-0.01em];
+    font-size: clamp(2rem, 3.5vw + 0.5rem, 3.25rem);
+    font-variation-settings: "opsz" 80, "SOFT" 30;
+  }
+  .lede {
+    @apply text-lg leading-relaxed text-ink/75 sm:text-xl;
+  }
+
+  .container-x {
+    @apply mx-auto w-full max-w-[1180px] px-5 sm:px-8;
+  }
+  .section {
+    @apply py-20 sm:py-28;
+  }
+
+  .hairline {
+    @apply border-ink/10;
+  }
+  .surface {
+    @apply rounded-xl2 border border-ink/10 bg-paper shadow-card;
+  }
+
+  /* A recurring horizon gradient used wherever licensed photography
+     will be dropped in. Looks intentional empty, reads as "golden hour". */
+  .horizon {
+    background:
+      radial-gradient(120% 90% at 50% 120%, rgba(190,123,37,0.55), transparent 60%),
+      linear-gradient(180deg, #1C434B 0%, #14333A 38%, #3B5A55 72%, #BE7B25 130%);
+  }
+  .horizon-soft {
+    background:
+      radial-gradient(100% 80% at 80% 0%, rgba(216,154,63,0.35), transparent 55%),
+      linear-gradient(160deg, #EFE7D7 0%, #F7F2E9 55%, #E7DCC6 100%);
+  }
+}
