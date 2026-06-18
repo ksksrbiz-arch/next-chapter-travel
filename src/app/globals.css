@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --header-h: 76px;
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+  }
+  ::selection {
+    @apply bg-clay/25 text-ink;
+  }
+  /* Honor reduced-motion across the whole site */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-clay ring-offset-2 ring-offset-paper;
+  }
+}
+
+@layer components {
+  /* Section kicker — the signature flowing script, set above each headline
+     with a hand-drawn swash underline. Inherited by every section header. */
+  .eyebrow {
+    @apply inline-flex flex-col items-center font-script normal-case tracking-normal text-clay;
+    font-size: clamp(1.55rem, 1rem + 1.7vw, 2.4rem);
+    line-height: 1.05;
+  }
+  .eyebrow::after {
+    content: "";
+    @apply mt-1.5 h-[3px] w-12 rounded-full bg-clay/45;
+  }
+  /* A small numeric / role marker, e.g. "Co-Owner & COO" or "Path 01". */
+  .chapter-no {
+    @apply font-display text-xs font-bold uppercase tracking-eyebrow text-clay;
+    font-feature-settings: "tnum";
+  }
+
+  /* Headlines stay in the clean sans for legibility and agency polish. */
+  .display-1 {
+    @apply font-display font-extrabold leading-[1.02] tracking-[-0.015em];
+    font-size: clamp(2.4rem, 5.4vw + 0.5rem, 4.6rem);
+  }
+  .display-2 {
+    @apply font-display font-extrabold leading-[1.08] tracking-[-0.01em];
+    font-size: clamp(1.85rem, 3.2vw + 0.5rem, 3rem);
+  }
+  /* Optional brand-script display, for short, expressive titles. */
+  .script-display {
+    @apply font-script text-clay;
+    font-size: clamp(2.6rem, 5.5vw + 0.5rem, 5rem);
+    line-height: 1;
+  }
+  .lede {
+    @apply text-lg leading-relaxed text-ink/80 sm:text-xl;
+  }
+
+  .container-x {
+    @apply mx-auto w-full max-w-[1180px] px-5 sm:px-8;
+  }
+  .section {
+    @apply py-20 sm:py-28;
+  }
+
+  .hairline {
+    @apply border-ink/10;
+  }
+  .surface {
+    @apply rounded-xl2 border border-ink/10 bg-cream shadow-card;
+  }
+
+  /* Warm "travel-journal" gradient — stands in for full-bleed photography
+     until licensed imagery is dropped in. Reads as golden-hour & sepia. */
+  .horizon {
+    background:
+      radial-gradient(120% 90% at 50% 120%, rgba(181,102,58,0.65), transparent 62%),
+      linear-gradient(180deg, #2A211A 0%, #3E322A 38%, #6E4128 78%, #B5663A 130%);
+  }
+  .horizon-soft {
+    background:
+      radial-gradient(100% 80% at 82% 0%, rgba(200,128,79,0.30), transparent 55%),
+      linear-gradient(160deg, #EADBBF 0%, #F3E7D2 52%, #E3CBA3 100%);
+  }
+}
