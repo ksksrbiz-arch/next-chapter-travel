@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHero } from "@/components/page-hero";
 import { TeamCard } from "@/components/team-card";
 import { CtaBanner } from "@/components/cta-banner";
 import { Reveal } from "@/components/ui/reveal";
 import { team } from "@/lib/data";
+import { photos, unsplash } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "About",
@@ -24,6 +26,7 @@ export default function AboutPage() {
         eyebrow="Our story"
         title="A small agency, built around two specialties."
         intro="Next Chapter Travel began with a simple idea: the best trips come from someone who plans that kind of trip all the time. So we built an agency around two of them."
+        photo={photos.romance}
       />
 
       {/* Story */}
@@ -47,7 +50,15 @@ export default function AboutPage() {
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="horizon-soft aspect-[4/5] rounded-xl2 border border-ink/10 shadow-card" />
+            <div className="relative aspect-[4/5] overflow-hidden rounded-xl2 border border-ink/10 shadow-lift">
+              <Image
+                src={unsplash(photos.family.id, 1000)}
+                alt={photos.family.alt}
+                fill
+                sizes="(min-width: 1024px) 45vw, 100vw"
+                className="object-cover"
+              />
+            </div>
           </Reveal>
         </div>
       </section>

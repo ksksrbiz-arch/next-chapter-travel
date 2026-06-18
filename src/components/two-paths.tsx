@@ -1,6 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
+import { photos, unsplash } from "@/lib/images";
 
 /** The balanced co-owner motif: theme parks and cruises, always shown as
  *  equal halves. Honors both co-owners without naming the site after either. */
@@ -11,7 +13,7 @@ const paths = [
     expert: "Curated by Wendy",
     copy: "Disney, Universal, and the family trips that take real strategy to get right.",
     href: "/experiences?category=theme-parks",
-    accent: "from-clay/90 to-gold/80",
+    photo: photos.themePark,
   },
   {
     no: "02",
@@ -19,7 +21,7 @@ const paths = [
     expert: "Curated by Jessica",
     copy: "The right ship, cabin, and all-inclusive — matched to exactly how you vacation.",
     href: "/experiences?category=cruises",
-    accent: "from-sea/90 to-ink/80",
+    photo: photos.cruise,
   },
 ];
 
@@ -39,10 +41,16 @@ export function TwoPaths() {
             <Reveal key={p.no} delay={i * 0.1}>
               <Link
                 href={p.href}
-                className="group relative flex min-h-[320px] flex-col justify-end overflow-hidden rounded-xl2 p-8 text-cream shadow-card transition-shadow hover:shadow-lift"
+                className="group relative flex min-h-[340px] flex-col justify-end overflow-hidden rounded-xl2 p-8 text-cream shadow-card transition-shadow hover:shadow-lift"
               >
-                <div className={`absolute inset-0 -z-10 bg-gradient-to-br ${p.accent}`} />
-                <div className="absolute inset-0 -z-10 bg-ink/20 transition-colors group-hover:bg-ink/10" />
+                <Image
+                  src={unsplash(p.photo.id, 1200)}
+                  alt={p.photo.alt}
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="-z-20 object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink/90 via-ink/45 to-ink/15" />
                 <span className="chapter-no !text-cream/85">Path {p.no}</span>
                 <h3 className="mt-2 font-display text-3xl font-extrabold">{p.title}</h3>
                 <p className="mt-3 max-w-sm text-cream/90">{p.copy}</p>
