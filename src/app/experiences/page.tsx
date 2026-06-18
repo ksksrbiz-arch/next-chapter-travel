@@ -3,6 +3,7 @@ import { PageHero } from "@/components/page-hero";
 import { ExperiencesGrid } from "@/components/experiences-grid";
 import { CtaBanner } from "@/components/cta-banner";
 import { experiences } from "@/lib/data";
+import { photos } from "@/lib/images";
 import type { ExperienceCategory } from "@/lib/types";
 
 export const metadata: Metadata = {
@@ -28,6 +29,7 @@ export default async function ExperiencesPage({
         eyebrow="Experiences"
         title="A sample of what's possible."
         intro="These are starting points, not a catalog. Every trip we plan is built from scratch around you — use these to spark ideas, then tell us yours."
+        photo={photos.santorini}
       />
 
       <section className="section">

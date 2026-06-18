@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Hero } from "@/components/hero";
+import { WelcomeIntro } from "@/components/welcome-intro";
 import { StatBand } from "@/components/stat-band";
 import { TwoPaths } from "@/components/two-paths";
 import { ChapterTimeline } from "@/components/chapter-timeline";
@@ -21,6 +22,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <WelcomeIntro />
       <StatBand />
       <TwoPaths />
 

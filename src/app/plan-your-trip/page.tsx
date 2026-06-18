@@ -3,6 +3,7 @@ import { Clock, ShieldCheck, Sparkles } from "lucide-react";
 import { PageHero } from "@/components/page-hero";
 import { LeadForm } from "@/components/lead-form";
 import { Reveal } from "@/components/ui/reveal";
+import { photos } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Plan your trip",
@@ -20,9 +21,10 @@ export default function PlanYourTripPage() {
   return (
     <>
       <PageHero
-        eyebrow="Chapter 01 — The Dream"
+        eyebrow="The Dream"
         title="Let's plan your next chapter."
         intro="A few details is all we need to start. Tell us where you're dreaming of and who's coming — we'll take it from there."
+        photo={photos.heroBeach}
       />
 
       <section className="section">

@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { photos, unsplash } from "@/lib/images";
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -16,23 +18,29 @@ export function Hero() {
 
   return (
     <section className="relative isolate overflow-hidden">
-      {/* Photo slot — replace .horizon with a full-bleed destination image
-          (next/image, priority) once licensed photography is uploaded. */}
-      <div className="horizon absolute inset-0 -z-10" />
-      <div className="absolute inset-0 -z-10 bg-ink/25" />
+      {/* Full-bleed destination photography with a warm wash for legibility. */}
+      <Image
+        src={unsplash(photos.heroBeach.id, 2400)}
+        alt={photos.heroBeach.alt}
+        fill
+        priority
+        sizes="100vw"
+        className="-z-20 object-cover"
+      />
+      <div className="horizon absolute inset-0 -z-10 opacity-80 mix-blend-multiply" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink/85 via-ink/45 to-ink/30" />
 
       <div className="container-x flex min-h-[calc(100dvh-var(--header-h))] flex-col justify-center py-24 text-cream">
         <motion.p {...rise(0.05)} className="eyebrow items-start !text-cream/90">
-          Where every journey begins a new chapter
+          Welcome to
         </motion.p>
 
-        <motion.h1 {...rise(0.12)} className="display-1 mt-5 max-w-[16ch] text-cream">
-          Your next chapter of travel
+        <motion.h1 {...rise(0.12)} className="display-1 mt-3 max-w-[18ch] text-cream">
+          Your Next Chapter of Travel
         </motion.h1>
 
-        <motion.p {...rise(0.22)} className="lede mt-6 max-w-xl !text-cream/85">
-          The trip you keep meaning to take — planned end to end by two specialists
-          who handle the parks, the ships, and every detail in between.
+        <motion.p {...rise(0.22)} className="lede mt-6 max-w-xl !text-cream/90">
+          Every trip tells a story — and the best ones are still waiting to be written.
         </motion.p>
 
         <motion.div {...rise(0.32)} className="mt-9 flex flex-wrap items-center gap-4">
