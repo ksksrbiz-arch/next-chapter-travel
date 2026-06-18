@@ -1,20 +1,22 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { Pinyon_Script, Mulish } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
-const fraunces = Fraunces({
+// Pinyon Script — the flowing brand hand used for section kickers & the wordmark.
+const script = Pinyon_Script({
   subsets: ["latin"],
+  weight: "400",
   display: "swap",
-  variable: "--font-fraunces",
-  axes: ["opsz", "SOFT", "WONK"],
+  variable: "--font-script",
 });
 
-const inter = Inter({
+// Mulish — clean, professional sans for body, UI, and headlines.
+const mulish = Mulish({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-mulish",
 });
 
 export const metadata: Metadata = {
@@ -49,7 +51,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
+    <html lang="en" className={`${script.variable} ${mulish.variable}`}>
       <body className="min-h-dvh">
         <a
           href="#main"

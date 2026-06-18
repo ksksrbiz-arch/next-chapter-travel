@@ -5,17 +5,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Golden-hour palette — the light at the threshold of a journey
-        ink: { DEFAULT: "#14333A", soft: "#1C434B" }, // deep dusk teal
-        paper: { DEFAULT: "#F7F2E9", deep: "#EFE7D7" }, // warm paper
-        gold: { DEFAULT: "#BE7B25", soft: "#D89A3F" }, // golden hour
-        clay: { DEFAULT: "#C0543C", soft: "#D2705A" }, // sunset clay
-        sea: { DEFAULT: "#2F6F66", soft: "#3E8579" }, // jade sea
-        stone: { DEFAULT: "#6B6256", soft: "#8C8375" }, // warm gray
+        // Warm travel-journal palette — sun-faded paper, espresso ink, terracotta.
+        ink: { DEFAULT: "#2A211A", soft: "#3E322A" }, // espresso brown (text + dark sections)
+        paper: { DEFAULT: "#D9B68C", deep: "#CBA475" }, // warm tan / camel
+        cream: { DEFAULT: "#F3E7D2", deep: "#EADBBF" }, // soft parchment (light bands + dark-section text)
+        gold: { DEFAULT: "#B5663A", soft: "#C8804F" }, // terracotta accent
+        clay: { DEFAULT: "#9C4A28", soft: "#BC6238" }, // deep rust
+        sea: { DEFAULT: "#5E7A74", soft: "#7C968F" }, // muted sage-teal (cruise imagery)
+        stone: { DEFAULT: "#7A6A57", soft: "#9A8A75" }, // warm taupe (muted text)
       },
       fontFamily: {
-        display: ["var(--font-fraunces)", "Georgia", "serif"],
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        script: ["var(--font-script)", "Pinyon Script", "cursive"],
+        display: ["var(--font-mulish)", "system-ui", "sans-serif"],
+        sans: ["var(--font-mulish)", "system-ui", "sans-serif"],
       },
       letterSpacing: {
         eyebrow: "0.22em",
@@ -27,8 +29,8 @@ const config: Config = {
         xl2: "1.25rem",
       },
       boxShadow: {
-        card: "0 1px 2px rgba(20,51,58,0.04), 0 12px 32px -12px rgba(20,51,58,0.18)",
-        lift: "0 2px 4px rgba(20,51,58,0.06), 0 28px 60px -24px rgba(20,51,58,0.28)",
+        card: "0 1px 2px rgba(42,33,26,0.05), 0 12px 32px -12px rgba(42,33,26,0.22)",
+        lift: "0 2px 4px rgba(42,33,26,0.07), 0 28px 60px -24px rgba(42,33,26,0.32)",
       },
       keyframes: {
         "fade-up": {

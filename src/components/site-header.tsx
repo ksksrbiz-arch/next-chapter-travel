@@ -36,10 +36,9 @@ export function SiteHeader() {
       )}
     >
       <div className="container-x flex h-[var(--header-h)] items-center justify-between">
-        <Link href="/" className="group flex items-baseline gap-2" aria-label="Next Chapter Travel home">
-          <span className="chapter-no">N°</span>
-          <span className="font-display text-xl font-semibold tracking-tight text-ink">
-            Next&nbsp;Chapter
+        <Link href="/" className="group flex items-baseline" aria-label="Next Chapter Travel home">
+          <span className="font-script text-3xl leading-none text-ink transition-colors group-hover:text-clay">
+            Next Chapter Travel
           </span>
         </Link>
 

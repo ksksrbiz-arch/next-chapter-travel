@@ -21,25 +21,25 @@ export function Hero() {
       <div className="horizon absolute inset-0 -z-10" />
       <div className="absolute inset-0 -z-10 bg-ink/25" />
 
-      <div className="container-x flex min-h-[calc(100dvh-var(--header-h))] flex-col justify-center py-24 text-paper">
-        <motion.p {...rise(0.05)} className="eyebrow text-gold-soft before:bg-gold-soft/70">
-          Theme parks &amp; cruises · One agency
+      <div className="container-x flex min-h-[calc(100dvh-var(--header-h))] flex-col justify-center py-24 text-cream">
+        <motion.p {...rise(0.05)} className="eyebrow items-start !text-cream/90">
+          Where every journey begins a new chapter
         </motion.p>
 
-        <motion.h1 {...rise(0.12)} className="display-1 mt-5 max-w-[16ch] text-paper">
+        <motion.h1 {...rise(0.12)} className="display-1 mt-5 max-w-[16ch] text-cream">
           Your next chapter of travel
         </motion.h1>
 
-        <motion.p {...rise(0.22)} className="lede mt-6 max-w-xl text-paper/85">
+        <motion.p {...rise(0.22)} className="lede mt-6 max-w-xl !text-cream/85">
           The trip you keep meaning to take — planned end to end by two specialists
           who handle the parks, the ships, and every detail in between.
         </motion.p>
 
         <motion.div {...rise(0.32)} className="mt-9 flex flex-wrap items-center gap-4">
-          <Button href="/plan-your-trip" size="lg">
-            Plan your trip
+          <Button href="/plan-your-trip" size="lg" variant="solid">
+            Start planning
           </Button>
-          <Button href="/experiences" size="lg" variant="outline" className="border-paper/40 text-paper hover:bg-paper hover:text-ink">
+          <Button href="/experiences" size="lg" variant="outline" className="border-cream/50 text-cream hover:bg-cream hover:text-ink">
             Browse experiences
           </Button>
         </motion.div>
@@ -47,15 +47,15 @@ export function Hero() {
         {/* The two-path motif, introduced quietly in the hero */}
         <motion.div
           {...rise(0.44)}
-          className="mt-16 grid max-w-xl grid-cols-2 gap-px overflow-hidden rounded-xl2 border border-paper/20 text-sm"
+          className="mt-16 grid max-w-xl grid-cols-2 gap-px overflow-hidden rounded-xl2 border border-cream/20 text-sm"
         >
-          <div className="bg-paper/10 px-5 py-4 backdrop-blur-sm">
-            <p className="chapter-no text-gold-soft">Path 01</p>
-            <p className="mt-1 font-display text-lg text-paper">Theme parks &amp; adventures</p>
+          <div className="bg-cream/10 px-5 py-4 backdrop-blur-sm">
+            <p className="chapter-no !text-cream/80">Path 01</p>
+            <p className="mt-1 font-display text-lg font-bold text-cream">Theme parks &amp; adventures</p>
           </div>
-          <div className="bg-paper/10 px-5 py-4 backdrop-blur-sm">
-            <p className="chapter-no text-gold-soft">Path 02</p>
-            <p className="mt-1 font-display text-lg text-paper">Luxury cruises &amp; resorts</p>
+          <div className="bg-cream/10 px-5 py-4 backdrop-blur-sm">
+            <p className="chapter-no !text-cream/80">Path 02</p>
+            <p className="mt-1 font-display text-lg font-bold text-cream">Luxury cruises &amp; resorts</p>
           </div>
         </motion.div>
       </div>

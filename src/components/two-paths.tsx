@@ -39,15 +39,15 @@ export function TwoPaths() {
             <Reveal key={p.no} delay={i * 0.1}>
               <Link
                 href={p.href}
-                className="group relative flex min-h-[320px] flex-col justify-end overflow-hidden rounded-xl2 p-8 text-paper shadow-card transition-shadow hover:shadow-lift"
+                className="group relative flex min-h-[320px] flex-col justify-end overflow-hidden rounded-xl2 p-8 text-cream shadow-card transition-shadow hover:shadow-lift"
               >
                 <div className={`absolute inset-0 -z-10 bg-gradient-to-br ${p.accent}`} />
-                <div className="absolute inset-0 -z-10 bg-ink/10 transition-colors group-hover:bg-ink/0" />
-                <span className="chapter-no text-paper/80">Path {p.no}</span>
-                <h3 className="mt-2 font-display text-3xl font-semibold">{p.title}</h3>
-                <p className="mt-3 max-w-sm text-paper/85">{p.copy}</p>
+                <div className="absolute inset-0 -z-10 bg-ink/20 transition-colors group-hover:bg-ink/10" />
+                <span className="chapter-no !text-cream/85">Path {p.no}</span>
+                <h3 className="mt-2 font-display text-3xl font-extrabold">{p.title}</h3>
+                <p className="mt-3 max-w-sm text-cream/90">{p.copy}</p>
                 <div className="mt-6 flex items-center justify-between">
-                  <span className="text-xs font-semibold uppercase tracking-eyebrow text-paper/80">
+                  <span className="text-xs font-semibold uppercase tracking-eyebrow text-cream/85">
                     {p.expert}
                   </span>
                   <ArrowUpRight className="h-6 w-6 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />

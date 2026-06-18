@@ -54,26 +54,26 @@ export default function HomePage() {
       <ChapterTimeline />
 
       {/* Testimonials */}
-      <section className="section bg-ink text-paper">
+      <section className="section bg-ink text-cream">
         <div className="container-x grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
           <Reveal>
-            <p className="eyebrow text-gold-soft before:bg-gold-soft/70">In their words</p>
-            <h2 className="display-2 mt-4 text-paper">
+            <p className="eyebrow items-start !text-cream/90">In their words</p>
+            <h2 className="display-2 mt-4 text-cream">
               The trips people don't stop talking about.
             </h2>
-            <p className="mt-5 text-paper/70">
+            <p className="mt-5 text-cream/75">
               Most of our travelers come from someone who traveled with us first.
               Here's why.
             </p>
             <Link
               href="/testimonials"
-              className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-gold-soft transition-colors hover:text-paper"
+              className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-gold-soft transition-colors hover:text-cream"
             >
               Read more stories <ArrowRight className="h-4 w-4" />
             </Link>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="rounded-xl2 bg-paper p-8 text-ink sm:p-10">
+            <div className="rounded-xl2 bg-cream p-8 text-ink sm:p-10">
               <TestimonialCarousel items={testimonials} />
             </div>
           </Reveal>
