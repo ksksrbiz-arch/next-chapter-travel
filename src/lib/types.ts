@@ -37,6 +37,9 @@ export interface TeamMember {
   specialties: string[];
   bio: string;
   expert: Exclude<Expert, "both">;
+  /** Public path to the member's portrait (in /public). Falls back to a
+   *  gradient placeholder when absent. */
+  photo?: string;
 }
 
 /** Shape of the row written to the `leads` table. */
