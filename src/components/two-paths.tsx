@@ -1,16 +1,18 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Palmtree, Heart, Gem, Users, Landmark, Compass } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { photos, unsplash } from "@/lib/images";
 
-/** The balanced co-owner motif: theme parks and cruises, always shown as
- *  equal halves. Honors both co-owners without naming the site after either. */
+/** The balanced co-owner motif: theme parks and cruises are the two
+ *  specialties — shown as equal halves — but never framed as the only
+ *  options. The "everything else" panel makes clear we plan any trip. */
 const paths = [
   {
     no: "01",
     title: "Theme parks & adventures",
-    expert: "Curated by Wendy",
+    expert: "Wendy's specialty",
     copy: "Disney, Universal, and the family trips that take real strategy to get right.",
     href: "/experiences?category=theme-parks",
     photo: photos.themePark,
@@ -18,11 +20,21 @@ const paths = [
   {
     no: "02",
     title: "Luxury cruises & resorts",
-    expert: "Curated by Jessica",
+    expert: "Jessica's specialty",
     copy: "The right ship, cabin, and all-inclusive — matched to exactly how you vacation.",
     href: "/experiences?category=cruises",
     photo: photos.cruise,
   },
+];
+
+// Just a sample — the point is that the list isn't the limit.
+const everythingElse = [
+  { icon: Palmtree, label: "All-inclusive resorts" },
+  { icon: Heart, label: "Honeymoons & romance" },
+  { icon: Gem, label: "Destination weddings" },
+  { icon: Users, label: "Group & multi-gen travel" },
+  { icon: Landmark, label: "European & city tours" },
+  { icon: Compass, label: "Bucket-list adventures" },
 ];
 
 export function TwoPaths() {
@@ -30,10 +42,14 @@ export function TwoPaths() {
     <section className="section">
       <div className="container-x">
         <Reveal>
-          <p className="eyebrow">Two specialties, one agency</p>
-          <h2 className="display-2 mt-4 max-w-[18ch]">
-            Two ways to travel. Both handled like the only thing we do.
+          <p className="eyebrow">What we plan</p>
+          <h2 className="display-2 mt-4 max-w-[20ch]">
+            Two specialties — and a whole lot more.
           </h2>
+          <p className="lede mt-5 max-w-2xl">
+            Theme parks and cruises are where Wendy and Jessica go deepest. But they&rsquo;re
+            specialties, not limits — wherever you&rsquo;re dreaming of going, we&rsquo;ll plan it.
+          </p>
         </Reveal>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -51,7 +67,7 @@ export function TwoPaths() {
                   className="-z-20 object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink/90 via-ink/45 to-ink/15" />
-                <span className="chapter-no !text-cream/85">Path {p.no}</span>
+                <span className="chapter-no !text-cream/85">Specialty {p.no}</span>
                 <h3 className="mt-2 font-display text-3xl font-extrabold">{p.title}</h3>
                 <p className="mt-3 max-w-sm text-cream/90">{p.copy}</p>
                 <div className="mt-6 flex items-center justify-between">
@@ -64,6 +80,36 @@ export function TwoPaths() {
             </Reveal>
           ))}
         </div>
+
+        {/* Everything else — make it unmistakable that we plan any trip. */}
+        <Reveal delay={0.1}>
+          <div className="mt-6 rounded-xl2 border border-ink/15 bg-cream p-8 sm:p-10">
+            <div className="grid gap-8 lg:grid-cols-[1fr_1.15fr] lg:items-center">
+              <div>
+                <h3 className="font-display text-2xl font-extrabold text-ink sm:text-3xl">
+                  Dreaming of something else? We plan that too.
+                </h3>
+                <p className="mt-3 max-w-md text-ink/75">
+                  From honeymoons to family reunions to once-in-a-lifetime bucket-list
+                  trips — if you can dream it, we can plan it. Tell us what you have in mind.
+                </p>
+                <Button href="/plan-your-trip" variant="solid" className="mt-6">
+                  Tell us what you have in mind
+                </Button>
+              </div>
+              <ul className="grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
+                {everythingElse.map(({ icon: Icon, label }) => (
+                  <li key={label} className="flex items-center gap-3">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-paper text-clay">
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    <span className="font-semibold text-ink/85">{label}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
