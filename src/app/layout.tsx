@@ -4,6 +4,7 @@ import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { JsonLd } from "@/components/json-ld";
+import { CookieConsent } from "@/components/cookie-consent";
 
 // Pinyon Script — the flowing brand hand used for section kickers & the wordmark.
 const script = Pinyon_Script({
@@ -84,6 +85,7 @@ export default function RootLayout({
         <SiteHeader />
         <main id="main">{children}</main>
         <SiteFooter />
+        <CookieConsent />
       </body>
     </html>
   );
