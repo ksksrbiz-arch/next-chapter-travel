@@ -12,6 +12,9 @@ const routes = [
   "/testimonials",
   "/stories",
   "/resources",
+  "/faq",
+  "/terms",
+  "/privacy",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

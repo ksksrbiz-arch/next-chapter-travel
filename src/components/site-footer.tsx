@@ -26,7 +26,8 @@ const cols = [
     title: "Resources",
     links: [
       { href: "/stories", label: "Stories" },
-      { href: "/resources", label: "Guides & FAQ" },
+      { href: "/resources", label: "Travel guides" },
+      { href: "/faq", label: "FAQ" },
     ],
   },
 ];
@@ -155,9 +156,19 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-ink/15">
-        <div className="container-x flex flex-col items-center justify-between gap-3 py-6 text-xs text-ink/60 sm:flex-row">
+        <div className="container-x flex flex-col items-center justify-between gap-4 py-6 text-xs text-ink/60 sm:flex-row">
           <p>© {new Date().getFullYear()} Next Chapter Travel, LLC. All rights reserved.</p>
-          <p>Curated travel · Theme parks &amp; cruises · Independent agency</p>
+          <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            <Link href="/terms" className={cn("transition-colors hover:text-clay", focusRing)}>
+              Terms of Service
+            </Link>
+            <Link href="/privacy" className={cn("transition-colors hover:text-clay", focusRing)}>
+              Privacy Policy
+            </Link>
+            <Link href="/faq" className={cn("transition-colors hover:text-clay", focusRing)}>
+              FAQ
+            </Link>
+          </nav>
         </div>
       </div>
     </footer>
