@@ -11,6 +11,7 @@ import { ChapterTimeline } from "@/components/chapter-timeline";
 import { ExperienceCard } from "@/components/experience-card";
 import { HomePromise } from "@/components/home-promise";
 import { TestimonialCarousel } from "@/components/testimonial-carousel";
+import { FlightPath } from "@/components/flight-path";
 import { CtaBanner } from "@/components/cta-banner";
 import { Reveal } from "@/components/ui/reveal";
 import { experiences, testimonials } from "@/lib/data";
@@ -33,6 +34,10 @@ export default function HomePage() {
       {/* Credibility — why us, then the two specialties + everything else. */}
       <HomeValueProps />
       <TwoPaths />
+
+      {/* Signature flourish — a dotted flight path drawing toward the showcase. */}
+      <FlightPath className="-mb-6 mt-4" />
+
 
       {/* Breadth — an immersive showcase of where we plan. */}
       <HomeDestinations />

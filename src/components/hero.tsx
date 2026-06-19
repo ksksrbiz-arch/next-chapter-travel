@@ -68,6 +68,28 @@ export function Hero() {
       <div className="horizon absolute inset-0 -z-10 opacity-80 mix-blend-multiply" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink/85 via-ink/45 to-ink/30" />
 
+      {/* Atmospheric light motes — slow drifting glints for depth. */}
+      {!reduce && (
+        <div aria-hidden className="absolute inset-0 -z-10 overflow-hidden">
+          {[
+            { left: "12%", top: "30%", size: 10, dur: 11, delay: 0 },
+            { left: "78%", top: "22%", size: 7, dur: 9, delay: 1.5 },
+            { left: "62%", top: "62%", size: 14, dur: 13, delay: 0.8 },
+            { left: "30%", top: "72%", size: 8, dur: 10, delay: 2.2 },
+            { left: "88%", top: "55%", size: 6, dur: 8, delay: 0.4 },
+          ].map((m, i) => (
+            <motion.span
+              key={i}
+              className="absolute rounded-full bg-gold-soft/40 blur-[2px]"
+              style={{ left: m.left, top: m.top, width: m.size, height: m.size }}
+              animate={{ y: [0, -26, 0], opacity: [0.2, 0.7, 0.2] }}
+              transition={{ duration: m.dur, ease: "easeInOut", repeat: Infinity, delay: m.delay }}
+            />
+          ))}
+        </div>
+      )}
+
+
       <div className="container-x flex min-h-[calc(100dvh-var(--header-h))] flex-col justify-center py-24 text-cream">
         <Reveal delay={0.05}>
           <p className="eyebrow items-start !text-cream/90">Welcome to</p>
