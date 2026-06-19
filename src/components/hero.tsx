@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Magnetic } from "@/components/ui/magnetic";
 import { photos, unsplash } from "@/lib/images";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -123,9 +124,11 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={0.6} className="mt-9 flex flex-wrap items-center gap-4">
-          <Button href="/plan-your-trip" size="lg" variant="solid">
-            Start planning
-          </Button>
+          <Magnetic>
+            <Button href="/plan-your-trip" size="lg" variant="solid">
+              Start planning
+            </Button>
+          </Magnetic>
           <Button
             href="/experiences"
             size="lg"
