@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
-import { TeamCard } from "@/components/team-card";
 import { CtaBanner } from "@/components/cta-banner";
+import { AboutFounderFeature } from "@/components/about-founder-feature";
 import { Reveal } from "@/components/ui/reveal";
 import { team } from "@/lib/data";
 
@@ -21,10 +21,10 @@ export default function TeamPage() {
       />
 
       <section className="section">
-        <div className="container-x grid gap-8 md:grid-cols-2">
+        <div className="container-x grid gap-10 md:grid-cols-2 md:items-start">
           {team.map((m, i) => (
             <Reveal key={m.slug} delay={i * 0.1}>
-              <TeamCard member={m} />
+              <AboutFounderFeature member={m} />
             </Reveal>
           ))}
         </div>
