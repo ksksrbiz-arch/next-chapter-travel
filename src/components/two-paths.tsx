@@ -57,14 +57,14 @@ export function TwoPaths() {
             <Reveal key={p.no} delay={i * 0.1}>
               <Link
                 href={p.href}
-                className="group relative flex min-h-[340px] flex-col justify-end overflow-hidden rounded-xl2 p-8 text-cream shadow-card transition-shadow hover:shadow-lift"
+                className="group relative flex min-h-[340px] flex-col justify-end overflow-hidden rounded-xl2 p-8 text-cream shadow-card transition-[transform,box-shadow] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream focus-visible:ring-offset-2 focus-visible:ring-offset-ink motion-safe:hover:-translate-y-1.5"
               >
                 <Image
                   src={unsplash(p.photo.id, 1200)}
                   alt={p.photo.alt}
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"
-                  className="-z-20 object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="-z-20 object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform motion-safe:group-hover:scale-105"
                 />
                 <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink/90 via-ink/45 to-ink/15" />
                 <span className="chapter-no !text-cream/85">Specialty {p.no}</span>
