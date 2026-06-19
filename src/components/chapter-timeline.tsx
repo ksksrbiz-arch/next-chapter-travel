@@ -52,6 +52,10 @@ export function ChapterTimeline({ showHeading = true }: { showHeading?: boolean 
             <h2 className="display-2 mt-4 max-w-[20ch]">
               Every trip is a story in four chapters.
             </h2>
+            <p className="lede mt-6 max-w-2xl">
+              One specialist, start to finish — so the planning feels effortless
+              and the trip feels like it was made for you.
+            </p>
           </Reveal>
         )}
 
