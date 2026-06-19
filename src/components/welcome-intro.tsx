@@ -10,15 +10,11 @@ import {
   useTransform,
 } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { photos, unsplash } from "@/lib/images";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
-// Allowed during design only — replace with licensed assets before launch.
-const OVERWATER =
-  "https://images.unsplash.com/photo-1505881502353-a1986add3762?auto=format&fit=crop&w=1200&q=80";
-const SANTORINI =
-  "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=900&q=80";
-
+/** Home "Welcome" section — the brand's warm, plain-spoken introduction. */
 export function WelcomeIntro() {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
@@ -38,7 +34,7 @@ export function WelcomeIntro() {
 
   return (
     <section className="section bg-cream">
-      <div className="container-x grid items-center gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
+      <div className="container-x grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
         {/* Left — copy */}
         <motion.div
           initial={reduce ? false : { opacity: 0, y: 16 }}
@@ -47,25 +43,32 @@ export function WelcomeIntro() {
           transition={{ duration: 0.7, ease: EASE }}
         >
           <p className="eyebrow items-start">Welcome</p>
-          <h2 className="display-2 mt-4 max-w-[18ch]">
-            Two specialists, one beautifully planned trip.
+          <h2 className="display-2 mt-3 max-w-[18ch] text-ink">
+            Where every journey begins a new chapter
           </h2>
-          <p className="lede mt-6 max-w-xl">
-            We started Next Chapter because the best trips don&apos;t come from a
-            booking site — they come from people who know the parks, the ships,
-            and the quiet corners in between.
-          </p>
-          <p className="mt-5 max-w-xl text-ink/75">
-            Tell us what you&apos;re dreaming about and we&apos;ll handle the
-            rest: the routing, the rooms, the reservations, and all the little
-            details that turn a vacation into a story.
-          </p>
-          <p className="font-script mt-6 text-2xl text-clay">
-            ✨ Your next adventure starts here.
-          </p>
-          <div className="mt-9">
+
+          <div className="mt-6 space-y-5 text-lg leading-relaxed text-ink/80">
+            <p>
+              At Next Chapter Travel, we believe travel should be effortless,
+              exciting, and completely tailored to you.
+            </p>
+            <p>
+              Whether you&rsquo;re dreaming of turquoise waters, magical theme parks,
+              romantic getaways, or bucket-list adventures across the globe, we handle
+              every detail so you can focus on what matters most: the experience.
+            </p>
+            <p>
+              From the first idea to the moment you return home, we&rsquo;re here to
+              guide you every step of the way.
+            </p>
+            <p className="font-script text-3xl text-clay">
+              ✨ Your next adventure starts here.
+            </p>
+          </div>
+
+          <div className="mt-8">
             <Button href="/plan-your-trip" size="lg" variant="solid">
-              Plan your trip
+              Start planning
             </Button>
           </div>
         </motion.div>
@@ -81,8 +84,8 @@ export function WelcomeIntro() {
             className="group absolute inset-x-6 top-0 bottom-10 overflow-hidden rounded-xl2 shadow-lift ring-1 ring-ink/10"
           >
             <Image
-              src={OVERWATER}
-              alt="Overwater bungalows above a turquoise lagoon at golden hour"
+              src={unsplash(photos.overwater.id, 1200)}
+              alt={photos.overwater.alt}
               fill
               sizes="(min-width: 1024px) 32rem, 90vw"
               className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform group-hover:scale-105"
@@ -98,8 +101,8 @@ export function WelcomeIntro() {
           >
             <div className="relative aspect-[3/4] overflow-hidden rounded-xl">
               <Image
-                src={SANTORINI}
-                alt="Whitewashed cliffside village above the Aegean Sea"
+                src={unsplash(photos.santorini.id, 900)}
+                alt={photos.santorini.alt}
                 fill
                 sizes="(min-width: 1024px) 13rem, 36vw"
                 className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform group-hover:scale-105"
