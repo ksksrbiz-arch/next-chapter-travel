@@ -5,6 +5,8 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { JsonLd } from "@/components/json-ld";
 import { CookieConsent } from "@/components/cookie-consent";
+import { ScrollProgress } from "@/components/scroll-progress";
+import { BackToTop } from "@/components/back-to-top";
 
 // Pinyon Script — the flowing brand hand used for section kickers & the wordmark.
 const script = Pinyon_Script({
@@ -76,6 +78,7 @@ export default function RootLayout({
     <html lang="en" className={`${script.variable} ${mulish.variable}`}>
       <body className="min-h-dvh">
         <JsonLd />
+        <ScrollProgress />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-ink focus:px-4 focus:py-2 focus:text-paper"
@@ -86,6 +89,7 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <SiteFooter />
         <CookieConsent />
+        <BackToTop />
       </body>
     </html>
   );
