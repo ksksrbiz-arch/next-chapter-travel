@@ -9,6 +9,8 @@ import {
   useTransform,
 } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { Magnetic } from "@/components/ui/magnetic";
+import { FlightPath } from "@/components/flight-path";
 import { Reveal } from "@/components/ui/reveal";
 
 export function CtaBanner() {
@@ -29,6 +31,7 @@ export function CtaBanner() {
   return (
     <section className="section">
       <div className="container-x">
+        <FlightPath className="mb-12" />
         <Reveal>
           <div
             ref={ref}
@@ -58,14 +61,11 @@ export function CtaBanner() {
               planning fee, ever. Just a real plan for your next chapter.
             </p>
             <div className="mt-9 flex justify-center">
-              <Button
-                href="/plan-your-trip"
-                size="lg"
-                variant="paper"
-                className="transition-transform duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5"
-              >
-                Start planning
-              </Button>
+              <Magnetic strength={0.4}>
+                <Button href="/plan-your-trip" size="lg" variant="paper">
+                  Start planning
+                </Button>
+              </Magnetic>
             </div>
           </div>
         </Reveal>

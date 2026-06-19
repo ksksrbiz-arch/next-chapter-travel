@@ -1,7 +1,13 @@
 "use client";
 
 import * as React from "react";
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import {
+  motion,
+  useInView,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import { Reveal } from "@/components/ui/reveal";
 
 /**
@@ -39,9 +45,18 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 
 export function ChapterTimeline({ showHeading = true }: { showHeading?: boolean }) {
   const reduce = useReducedMotion();
+  const wrapRef = React.useRef<HTMLDivElement>(null);
   const listRef = React.useRef<HTMLOListElement>(null);
   const inView = useInView(listRef, { once: true, margin: "-80px" });
   const animateIn = inView || reduce;
+
+  // Scroll-linked progress across the chapter row (desktop only).
+  const { scrollYProgress } = useScroll({
+    target: wrapRef,
+    offset: ["start 65%", "end 75%"],
+  });
+  const lineScaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const markerLeft = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
     <section className="section">
@@ -59,16 +74,24 @@ export function ChapterTimeline({ showHeading = true }: { showHeading?: boolean 
           </Reveal>
         )}
 
-        <div className="relative mt-14">
-          {/* Connecting progress accent — draws across the steps on reveal. */}
-          <motion.span
-            aria-hidden
-            className="pointer-events-none absolute left-0 top-0 z-10 hidden h-px origin-left bg-gold/60 lg:block"
-            style={{ width: "100%" }}
-            initial={{ scaleX: reduce ? 1 : 0 }}
-            animate={{ scaleX: animateIn ? 1 : 0 }}
-            transition={{ duration: reduce ? 0 : 1, ease: EASE, delay: reduce ? 0 : 0.2 }}
-          />
+        <div ref={wrapRef} className="relative mt-14">
+          {/* Track + scroll-linked progress fill + travelling marker (desktop). */}
+          <div className="pointer-events-none absolute -top-3 left-0 right-0 z-10 hidden lg:block">
+            <div className="relative h-px w-full bg-ink/12">
+              <motion.div
+                aria-hidden
+                className="absolute inset-y-0 left-0 w-full origin-left bg-gradient-to-r from-clay to-gold"
+                style={{ scaleX: reduce ? 1 : lineScaleX }}
+              />
+              {!reduce && (
+                <motion.span
+                  aria-hidden
+                  className="absolute top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-clay shadow-[0_0_0_4px_rgba(156,74,40,0.18)]"
+                  style={{ left: markerLeft }}
+                />
+              )}
+            </div>
+          </div>
 
           <ol
             ref={listRef}
@@ -89,7 +112,7 @@ export function ChapterTimeline({ showHeading = true }: { showHeading?: boolean 
                 }}
               >
                 <div className="flex items-baseline gap-3">
-                  <span className="font-display text-3xl font-semibold text-clay transition-colors group-hover:text-clay/80">
+                  <span className="font-display text-3xl font-semibold text-clay transition-transform duration-300 group-hover:scale-110">
                     {c.no}
                   </span>
                   <span className="text-xs font-semibold uppercase tracking-eyebrow text-gold">

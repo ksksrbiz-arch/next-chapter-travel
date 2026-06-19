@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Experience } from "@/lib/types";
 import { categoryPhoto, photos, unsplash } from "@/lib/images";
+import { TiltCard } from "@/components/ui/tilt-card";
 
 const expertLabel: Record<Experience["expert"], string> = {
   wendy: "Theme-park experts",
@@ -12,11 +13,12 @@ const expertLabel: Record<Experience["expert"], string> = {
 export function ExperienceCard({ exp }: { exp: Experience }) {
   const photo = categoryPhoto[exp.category] ?? photos.themePark;
   return (
-    <Link
-      href={`/experiences/${exp.slug}`}
-      id={exp.slug}
-      className="group flex scroll-mt-28 flex-col overflow-hidden rounded-xl2 border border-ink/10 bg-cream shadow-card transition-[transform,box-shadow] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-cream motion-safe:hover:-translate-y-1.5 motion-safe:hover:scale-[1.015]"
-    >
+    <TiltCard className="h-full" max={5}>
+      <Link
+        href={`/experiences/${exp.slug}`}
+        id={exp.slug}
+        className="group flex h-full scroll-mt-28 flex-col overflow-hidden rounded-xl2 border border-ink/10 bg-cream shadow-card transition-shadow duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
+      >
       <div className="relative aspect-[4/3] overflow-hidden">
         <Image
           src={unsplash(photo.id, 800)}
@@ -60,6 +62,7 @@ export function ExperienceCard({ exp }: { exp: Experience }) {
           </span>
         </div>
       </div>
-    </Link>
+      </Link>
+    </TiltCard>
   );
 }

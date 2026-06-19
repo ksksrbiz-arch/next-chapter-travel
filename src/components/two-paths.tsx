@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ArrowUpRight, Palmtree, Heart, Gem, Users, Landmark, Compass } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
+import { TiltCard } from "@/components/ui/tilt-card";
 import { photos, unsplash } from "@/lib/images";
 
 /** The balanced co-owner motif: theme parks and cruises are the two
@@ -55,9 +56,10 @@ export function TwoPaths() {
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {paths.map((p, i) => (
             <Reveal key={p.no} delay={i * 0.1}>
+              <TiltCard max={5}>
               <Link
                 href={p.href}
-                className="group relative flex min-h-[340px] flex-col justify-end overflow-hidden rounded-xl2 p-8 text-cream shadow-card transition-[transform,box-shadow] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream focus-visible:ring-offset-2 focus-visible:ring-offset-ink motion-safe:hover:-translate-y-1.5"
+                className="group relative flex min-h-[340px] flex-col justify-end overflow-hidden rounded-xl2 p-8 text-cream shadow-card transition-shadow duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
               >
                 <Image
                   src={unsplash(p.photo.id, 1200)}
@@ -77,6 +79,7 @@ export function TwoPaths() {
                   <ArrowUpRight className="h-6 w-6 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </div>
               </Link>
+              </TiltCard>
             </Reveal>
           ))}
         </div>
