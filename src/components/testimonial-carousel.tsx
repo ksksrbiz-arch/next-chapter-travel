@@ -7,9 +7,9 @@ import type { Testimonial } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 const expertLabel: Record<Testimonial["expert"], string> = {
-  wendy: "Theme parks · Wendy",
-  jessica: "Cruises & resorts · Jessica",
-  both: "Family trip · Wendy & Jessica",
+  wendy: "Theme parks",
+  jessica: "Cruises & resorts",
+  both: "Family trip",
 };
 
 const AUTOPLAY_MS = 7000;

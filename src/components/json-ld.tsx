@@ -9,7 +9,7 @@ export function JsonLd() {
     "@type": "TravelAgency",
     name: "Next Chapter Travel, LLC",
     description:
-      "A boutique travel agency for theme-park adventures and luxury cruises. Two specialists, one agency, every detail handled.",
+      "A boutique travel agency for theme-park adventures and luxury cruises. Real specialists, one agency, every detail handled.",
     url: "https://nextchaptertravel.com",
     telephone: "+1-336-780-3389",
     email: "nextchaptertravel26@gmail.com",

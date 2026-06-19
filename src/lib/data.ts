@@ -130,7 +130,7 @@ export const testimonials: Testimonial[] = [
 
 export const stats = [
   { value: "12+", label: "Years planning travel" },
-  { value: "2", label: "Specialists, one agency" },
+  { value: "1:1", label: "You & a dedicated agent" },
   { value: "1,000s", label: "Trips made effortless" },
-  { value: "$0", label: "Planning fee, most trips" },
+  { value: "$0", label: "Planning fees, ever" },
 ];

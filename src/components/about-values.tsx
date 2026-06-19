@@ -4,7 +4,7 @@ import { Reveal, RevealGroup } from "@/components/ui/reveal";
 const values: { title: string; copy: string }[] = [
   {
     title: "Specialists, not generalists",
-    copy: "Two people who go deep on what they book — not a call center reading the same script for every trip.",
+    copy: "Real specialists who go deep on what they book — not a call center reading the same script for every trip.",
   },
   {
     title: "The details are the trip",

@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s · Next Chapter Travel",
   },
   description:
-    "A boutique travel agency for theme-park adventures and luxury cruises. Two specialists, one agency, every detail handled. Start your next chapter of travel.",
+    "A boutique travel agency for theme-park adventures and luxury cruises. Real specialists, one agency, every detail handled. Start your next chapter of travel.",
   keywords: [
     "travel agency",
     "Disney travel planner",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Next Chapter Travel — Your Next Chapter of Travel",
     description:
-      "Theme-park adventures and luxury cruises, planned end to end. Two specialists, one agency.",
+      "Theme-park adventures and luxury cruises, planned end to end. Real specialists, one agency.",
     url: "https://nextchaptertravel.com",
     siteName: "Next Chapter Travel",
     locale: "en_US",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Next Chapter Travel — Your Next Chapter of Travel",
     description:
-      "Theme-park adventures and luxury cruises, planned end to end. Two specialists, one agency.",
+      "Theme-park adventures and luxury cruises, planned end to end. Real specialists, one agency.",
   },
   manifest: "/manifest.webmanifest",
   icons: {

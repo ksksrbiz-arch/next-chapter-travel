@@ -6,9 +6,9 @@ import type { TeamMember } from "@/lib/types";
  *  scoped to the known facts (Wendy = parks, Jessica = cruises). Local consts. */
 const specialtyLine: Record<string, string> = {
   wendy:
-    "Your theme-park specialist. Disney and Universal trips planned park-day by park-day, so your family gets the magic without the guesswork.",
+    "Our theme-park expert. Disney and Universal trips planned park-day by park-day, so your family gets the magic without the guesswork.",
   jessica:
-    "Your cruise and resort specialist. The right ship, cabin, and itinerary — matched to how you vacation and booked with the perks that come with it.",
+    "Our cruise and resort expert. The right ship, cabin, and itinerary — matched to how you vacation and booked with the perks that come with it.",
 };
 
 /** Pairs a refined TeamCard with a specialty highlight and an inviting CTA to
@@ -26,7 +26,7 @@ export function AboutFounderFeature({ member }: { member: TeamMember }) {
           variant="solid"
           className="mt-6"
         >
-          Plan a trip with {member.name}
+          Start planning
         </Button>
       </div>
     </div>

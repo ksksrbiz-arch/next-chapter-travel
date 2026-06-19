@@ -9,13 +9,13 @@ import { photos } from "@/lib/images";
 export const metadata: Metadata = {
   title: "Plan your trip",
   description:
-    "Tell us about the trip you've been meaning to take. Theme parks, cruises, or both — one of our specialists will build a plan around you.",
+    "Tell us about the trip you've been meaning to take. Theme parks, cruises, or both — one of our agents will build a plan around you.",
 };
 
 const assurances = [
-  { icon: Clock, title: "One business day", copy: "That's how fast you'll hear back from a real person — usually the one who'll plan your trip." },
-  { icon: ShieldCheck, title: "No fee, most trips", copy: "We're paid by the suppliers, not you. Planning is free on the vast majority of bookings." },
-  { icon: Sparkles, title: "Matched to you", copy: "You're routed to the specialist for your trip — parks to Wendy, cruises to Jessica." },
+  { icon: Clock, title: "One business day", copy: "That's how fast you'll hear back from a real person — a real agent, not an auto-reply." },
+  { icon: ShieldCheck, title: "Never a planning fee", copy: "We're paid by the suppliers we book, not by you — most of them actually prohibit planning fees. Full-service planning, no added cost." },
+  { icon: Sparkles, title: "Matched to you", copy: "Your inquiry goes to an agent who specializes in the kind of trip you're planning, so you're in expert hands from day one." },
 ];
 
 export default function PlanYourTripPage() {

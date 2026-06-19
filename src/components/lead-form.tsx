@@ -209,7 +209,7 @@ export function LeadForm() {
           {pending ? "Sending…" : "Send my request"}
         </Button>
         <p className="text-xs text-stone">
-          No planning fee on most trips. We reply within one business day.
+          We never charge a planning fee. We reply within one business day.
         </p>
       </div>
     </form>

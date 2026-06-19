@@ -19,7 +19,7 @@ export const chapters = [
     no: "02",
     name: "The Plan",
     title: "We build it around you",
-    copy: "Your specialist matches you to the right parks or ship, then handles dates, rooms, dining, and the details that make or break a trip.",
+    copy: "We pair you with an agent who specializes in your kind of trip, then handle dates, rooms, dining, and the details that make or break a trip.",
   },
   {
     no: "03",
@@ -53,8 +53,8 @@ export function ChapterTimeline({ showHeading = true }: { showHeading?: boolean 
               Every trip is a story in four chapters.
             </h2>
             <p className="lede mt-6 max-w-2xl">
-              One specialist, start to finish — so the planning feels effortless
-              and the trip feels like it was made for you.
+              One dedicated agent, start to finish — so the planning feels
+              effortless and the trip feels like it was made for you.
             </p>
           </Reveal>
         )}
