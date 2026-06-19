@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
 import { ChapterTimeline } from "@/components/chapter-timeline";
+import { ConvChapterDetail } from "@/components/conv-chapter-detail";
 import { CtaBanner } from "@/components/cta-banner";
 import { Reveal } from "@/components/ui/reveal";
 
@@ -27,7 +28,9 @@ export default function HowItWorksPage() {
 
       <ChapterTimeline showHeading={false} />
 
-      <section className="section bg-paper-deep">
+      <ConvChapterDetail />
+
+      <section className="section">
         <div className="container-x">
           <Reveal>
             <p className="eyebrow">Good to know</p>

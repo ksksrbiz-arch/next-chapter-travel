@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Clock, ShieldCheck, Sparkles } from "lucide-react";
 import { PageHero } from "@/components/page-hero";
 import { LeadForm } from "@/components/lead-form";
+import { ConvTrustStrip } from "@/components/conv-trust-strip";
 import { Reveal } from "@/components/ui/reveal";
 import { photos } from "@/lib/images";
 
@@ -29,7 +30,29 @@ export default function PlanYourTripPage() {
 
       <section className="section">
         <div className="container-x grid gap-12 lg:grid-cols-[1.5fr_1fr] lg:items-start">
-          <LeadForm />
+          <div>
+            <Reveal variant="fade" className="mb-6">
+              <p className="eyebrow">Start your inquiry</p>
+              <h2 className="display-2 mt-3 max-w-[18ch]">
+                Tell us about the trip.
+              </h2>
+            </Reveal>
+
+            {/*
+              TravelJoy inquiry embed — replace LeadForm below with the TravelJoy
+              <iframe> when the owners provide the embed URL. Keep this wrapper so
+              the page layout stays intact; drop the LeadForm import once the
+              iframe is live. Example shape:
+
+              <iframe
+                src="https://app.traveljoy.com/inquiry/REPLACE-WITH-URL"
+                title="Plan your trip inquiry form"
+                className="surface min-h-[640px] w-full"
+                loading="lazy"
+              />
+            */}
+            <LeadForm />
+          </div>
 
           <Reveal delay={0.1}>
             <div className="space-y-8 lg:pl-4">
@@ -49,6 +72,9 @@ export default function PlanYourTripPage() {
                   </li>
                 ))}
               </ul>
+
+              <ConvTrustStrip />
+
               <div className="surface p-6">
                 <p className="text-sm leading-relaxed text-ink/75">
                   Prefer to talk it through first? Email{" "}
