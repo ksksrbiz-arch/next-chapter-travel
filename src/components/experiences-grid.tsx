@@ -13,6 +13,7 @@ const filters: { value: "all" | ExperienceCategory; label: string }[] = [
   { value: "cruises", label: "Cruises" },
   { value: "all-inclusive", label: "All-inclusive" },
   { value: "family", label: "Family" },
+  { value: "international", label: "International" },
 ];
 
 const EASE = [0.16, 1, 0.3, 1] as const;

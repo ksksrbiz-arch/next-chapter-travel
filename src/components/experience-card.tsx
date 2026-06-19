@@ -32,11 +32,32 @@ export function ExperienceCard({ exp }: { exp: Experience }) {
       <div className="flex flex-1 flex-col p-6">
         <h3 className="font-display text-xl font-bold text-ink">{exp.title}</h3>
         <p className="mt-2 flex-1 text-sm leading-relaxed text-ink/75">{exp.blurb}</p>
+        {(exp.duration || exp.priceFrom) && (
+          <dl className="mt-5 flex flex-wrap gap-x-6 gap-y-1 text-xs text-ink/70">
+            {exp.duration && (
+              <div className="flex items-baseline gap-1.5">
+                <dt className="font-semibold uppercase tracking-eyebrow text-ink/45">Length</dt>
+                <dd className="text-ink/80">{exp.duration}</dd>
+              </div>
+            )}
+            {exp.priceFrom && (
+              <div className="flex items-baseline gap-1.5">
+                <dt className="font-semibold uppercase tracking-eyebrow text-ink/45">Pricing</dt>
+                <dd className="text-ink/80">{exp.priceFrom}</dd>
+              </div>
+            )}
+          </dl>
+        )}
         <div className="mt-5 flex items-center justify-between border-t border-ink/10 pt-4 text-xs">
           <span className="font-semibold uppercase tracking-eyebrow text-gold">
             {expertLabel[exp.expert]}
           </span>
-          {exp.duration && <span className="text-stone">{exp.duration}</span>}
+          <span
+            aria-hidden
+            className="font-medium text-clay opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          >
+            Build mine &rarr;
+          </span>
         </div>
       </div>
     </Link>
