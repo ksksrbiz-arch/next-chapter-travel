@@ -135,8 +135,8 @@ The build is complete and runs; these are the content/asset swaps only the clien
   that host) and swap the gradient divs for `<Image>`. Or commit optimized images to the
   repo. Don't ship the `images.unsplash.com` allowance to production without licenses.
 - **Real testimonials & experiences.** Replace seed content with the agency's own.
-- **Contact details.** `hello@nextchaptertravel.com` appears in a few places — update to
-  the real inbox, and confirm the domain.
+- **Contact details.** Primary inbox `nextchaptertravel26@gmail.com`, phone `336-780-3389`,
+  Instagram `@nextchaptertravelllc`. Facebook handle still TBD. Confirm the public domain.
 - **Owner bios & headshots.** Wendy and Jessica's real bios/photos in `team_members`.
 - **Legal.** Add privacy policy / terms pages and link them in the footer if required.
 

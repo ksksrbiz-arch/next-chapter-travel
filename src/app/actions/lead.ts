@@ -68,7 +68,7 @@ export async function submitLead(
     return {
       ok: false,
       message:
-        "Something hiccuped on our end while saving your request. Mind emailing us at hello@nextchaptertravel.com? We'd love to help.",
+        "Something hiccuped on our end while saving your request. Mind emailing us at nextchaptertravel26@gmail.com? We'd love to help.",
     };
   }
 }

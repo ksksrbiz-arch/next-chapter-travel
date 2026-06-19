@@ -52,8 +52,12 @@ export default function PlanYourTripPage() {
               <div className="surface p-6">
                 <p className="text-sm leading-relaxed text-ink/75">
                   Prefer to talk it through first? Email{" "}
-                  <a href="mailto:hello@nextchaptertravel.com" className="font-semibold text-gold hover:text-ink">
-                    hello@nextchaptertravel.com
+                  <a href="mailto:nextchaptertravel26@gmail.com" className="font-semibold text-gold hover:text-ink">
+                    nextchaptertravel26@gmail.com
+                  </a>{" "}
+                  or call{" "}
+                  <a href="tel:+13367803389" className="font-semibold text-gold hover:text-ink">
+                    336-780-3389
                   </a>{" "}
                   and we'll set up a quick call.
                 </p>

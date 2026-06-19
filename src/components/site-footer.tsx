@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Facebook, Instagram, MapPin, Phone, Mail, ShieldCheck } from "lucide-react";
+import { Instagram, MapPin, Phone, Mail, ShieldCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const focusRing =
@@ -75,13 +75,13 @@ export function SiteFooter() {
             <p className="flex items-center gap-2.5">
               <Mail className="h-4 w-4 shrink-0 text-clay" />
               <a
-                href="mailto:hello@nextchaptertravel.com"
+                href="mailto:nextchaptertravel26@gmail.com"
                 className={cn(
                   "inline-block rounded-sm py-0.5 underline-offset-4 transition-colors hover:text-clay hover:underline",
                   focusRing,
                 )}
               >
-                hello@nextchaptertravel.com
+                nextchaptertravel26@gmail.com
               </a>
             </p>
           </div>
@@ -93,17 +93,9 @@ export function SiteFooter() {
 
           <div className="mt-6 flex items-center gap-3">
             <a
-              href="https://www.facebook.com/"
-              aria-label="Next Chapter Travel on Facebook"
-              className={cn(
-                "flex h-10 w-10 items-center justify-center rounded-full border border-ink/20 text-ink/80 transition duration-200 ease-out hover:border-clay hover:bg-clay hover:text-cream motion-safe:hover:scale-110",
-                focusRing,
-              )}
-            >
-              <Facebook className="h-[18px] w-[18px]" />
-            </a>
-            <a
-              href="https://www.instagram.com/"
+              href="https://www.instagram.com/nextchaptertravelllc"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Next Chapter Travel on Instagram"
               className={cn(
                 "flex h-10 w-10 items-center justify-center rounded-full border border-ink/20 text-ink/80 transition duration-200 ease-out hover:border-clay hover:bg-clay hover:text-cream motion-safe:hover:scale-110",
