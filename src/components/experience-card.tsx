@@ -13,7 +13,7 @@ export function ExperienceCard({ exp }: { exp: Experience }) {
   const photo = categoryPhoto[exp.category] ?? photos.themePark;
   return (
     <Link
-      href={`/experiences#${exp.slug}`}
+      href={`/experiences/${exp.slug}`}
       id={exp.slug}
       className="group flex scroll-mt-28 flex-col overflow-hidden rounded-xl2 border border-ink/10 bg-cream shadow-card transition-[transform,box-shadow] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-cream motion-safe:hover:-translate-y-1.5 motion-safe:hover:scale-[1.015]"
     >
