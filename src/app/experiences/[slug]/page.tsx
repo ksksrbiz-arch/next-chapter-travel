@@ -7,6 +7,7 @@ import { CtaBanner } from "@/components/cta-banner";
 import { ExpDetailBody } from "@/components/exp-detail-body";
 import { ExpDetailRelated } from "@/components/exp-detail-related";
 import { getExpDetailContent } from "@/components/exp-detail-content";
+import { Schema, breadcrumb, SITE_URL } from "@/components/schema";
 import { experiences } from "@/lib/data";
 import { categoryPhoto, photos } from "@/lib/images";
 
@@ -43,8 +44,34 @@ export default async function ExperienceDetailPage({
 
   const related = experiences.filter((e) => e.slug !== exp.slug).slice(0, 3);
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: exp.title,
+    description: exp.blurb,
+    serviceType: "Travel planning",
+    areaServed: exp.location,
+    provider: { "@id": `${SITE_URL}/#organization` },
+    offers: {
+      "@type": "Offer",
+      priceSpecification: {
+        "@type": "PriceSpecification",
+        price: "0",
+        priceCurrency: "USD",
+        description: "No planning fee — custom-quoted",
+      },
+    },
+  };
+  const crumbs = breadcrumb([
+    { name: "Home", path: "/" },
+    { name: "Experiences", path: "/experiences" },
+    { name: exp.title, path: `/experiences/${exp.slug}` },
+  ]);
+
   return (
     <>
+      <Schema data={serviceSchema} />
+      <Schema data={crumbs} />
       <PageHero
         eyebrow="Experience"
         title={exp.title}

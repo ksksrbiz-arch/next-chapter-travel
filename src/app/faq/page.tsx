@@ -3,6 +3,7 @@ import Link from "next/link";
 import { PageHero } from "@/components/page-hero";
 import { CtaBanner } from "@/components/cta-banner";
 import { Accordion } from "@/components/ui/accordion";
+import { Schema } from "@/components/schema";
 import { Reveal } from "@/components/ui/reveal";
 
 export const metadata: Metadata = {
@@ -105,8 +106,21 @@ const groups: { title: string; items: { q: string; a: string }[] }[] = [
 ];
 
 export default function FaqPage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: groups.flatMap((g) =>
+      g.items.map((it) => ({
+        "@type": "Question",
+        name: it.q,
+        acceptedAnswer: { "@type": "Answer", text: it.a },
+      })),
+    ),
+  };
+
   return (
     <>
+      <Schema data={faqSchema} />
       <PageHero
         eyebrow="FAQ"
         title="Questions, answered honestly."
