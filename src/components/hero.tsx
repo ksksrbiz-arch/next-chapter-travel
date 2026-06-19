@@ -113,21 +113,6 @@ export function Hero() {
             Browse experiences
           </Button>
         </Reveal>
-
-        {/* The two-path motif, introduced quietly in the hero */}
-        <Reveal
-          delay={0.72}
-          className="mt-16 grid max-w-xl grid-cols-2 gap-px overflow-hidden rounded-xl2 border border-cream/20 text-sm"
-        >
-          <div className="bg-cream/10 px-5 py-4 backdrop-blur-sm">
-            <p className="chapter-no !text-cream/80">Path 01</p>
-            <p className="mt-1 font-display text-lg font-bold text-cream">Theme parks &amp; adventures</p>
-          </div>
-          <div className="bg-cream/10 px-5 py-4 backdrop-blur-sm">
-            <p className="chapter-no !text-cream/80">Path 02</p>
-            <p className="mt-1 font-display text-lg font-bold text-cream">Luxury cruises &amp; resorts</p>
-          </div>
-        </Reveal>
       </div>
 
       {/* Decorative scroll cue — animated only when motion is allowed. */}
