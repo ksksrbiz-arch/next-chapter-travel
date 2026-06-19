@@ -44,7 +44,13 @@ export function SiteFooter() {
     <footer className="border-t border-ink/15 bg-paper-deep">
       <div className="container-x grid gap-12 py-16 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
         <div className="max-w-sm">
-          <Link href="/" className="font-script text-3xl leading-none text-ink">
+          <Link
+            href="/"
+            className={cn(
+              "inline-block rounded-sm font-script text-3xl leading-none text-ink transition-colors duration-200 hover:text-clay",
+              focusRing,
+            )}
+          >
             Next Chapter Travel
           </Link>
           <p className="mt-3 font-script text-xl text-clay">

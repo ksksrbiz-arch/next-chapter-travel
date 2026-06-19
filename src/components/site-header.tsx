@@ -82,7 +82,11 @@ export function SiteHeader() {
       )}
     >
       <div className="container-x flex h-[var(--header-h)] items-center justify-between">
-        <Link href="/" className="group flex items-baseline" aria-label="Next Chapter Travel home">
+        <Link
+          href="/"
+          className="group flex items-baseline rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+          aria-label="Next Chapter Travel home"
+        >
           <span className="font-script text-3xl leading-none text-ink transition-colors duration-100 group-hover:text-clay">
             Next Chapter Travel
           </span>
@@ -97,7 +101,7 @@ export function SiteHeader() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "relative py-1 text-sm font-medium text-ink/70 transition-colors duration-100 hover:text-ink",
+                  "relative rounded-sm py-1 text-sm font-medium text-ink/70 outline-none transition-colors duration-100 hover:text-ink focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper",
                   active && "text-ink",
                 )}
               >
