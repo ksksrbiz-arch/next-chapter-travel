@@ -78,6 +78,11 @@ export function WelcomeIntro() {
           ref={ref}
           className="relative mx-auto aspect-[4/5] w-full max-w-md lg:mr-0"
         >
+          {/* Soft warm halo seats the collage in the cream band */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -inset-6 -z-10 rounded-[2.5rem] bg-paper/50 blur-2xl"
+          />
           {/* Tall hero image */}
           <motion.div
             style={reduce ? undefined : { y: tallY }}

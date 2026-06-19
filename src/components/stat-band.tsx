@@ -59,13 +59,19 @@ function CountUp({ value }: { value: string }) {
 export function StatBand() {
   return (
     <section className="border-y border-ink/10 bg-paper-deep">
-      <div className="container-x grid grid-cols-2 gap-y-10 py-12 sm:py-14 lg:grid-cols-4">
+      <div className="container-x grid grid-cols-2 gap-y-12 py-14 sm:py-16 lg:grid-cols-4">
         {stats.map((s, i) => (
-          <Reveal key={s.label} delay={i * 0.06} className="text-center">
-            <div className="font-display text-4xl font-semibold text-ink sm:text-5xl tabular-nums">
+          <Reveal
+            key={s.label}
+            delay={i * 0.06}
+            className="px-4 text-center sm:[&:not(:nth-child(2n+1))]:border-l sm:[&:not(:nth-child(2n+1))]:border-ink/15 lg:[&:not(:first-child)]:border-l"
+          >
+            <div className="font-display text-4xl font-semibold leading-none text-ink tabular-nums sm:text-5xl">
               <CountUp value={s.value} />
             </div>
-            <div className="mt-2 text-sm text-stone">{s.label}</div>
+            <div className="mt-3 text-sm font-medium uppercase tracking-wide text-stone">
+              {s.label}
+            </div>
           </Reveal>
         ))}
       </div>

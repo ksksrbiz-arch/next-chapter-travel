@@ -3,9 +3,13 @@ import { ArrowRight } from "lucide-react";
 import { Hero } from "@/components/hero";
 import { WelcomeIntro } from "@/components/welcome-intro";
 import { StatBand } from "@/components/stat-band";
+import { HomeValueProps } from "@/components/home-value-props";
 import { TwoPaths } from "@/components/two-paths";
+import { HomeDestinations } from "@/components/home-destinations";
+import { HomeCredentials } from "@/components/home-credentials";
 import { ChapterTimeline } from "@/components/chapter-timeline";
 import { ExperienceCard } from "@/components/experience-card";
+import { HomePromise } from "@/components/home-promise";
 import { TestimonialCarousel } from "@/components/testimonial-carousel";
 import { CtaBanner } from "@/components/cta-banner";
 import { Reveal } from "@/components/ui/reveal";
@@ -21,10 +25,20 @@ export default function HomePage() {
 
   return (
     <>
+      {/* Opening — hero into the warm welcome, anchored by the stat band. */}
       <Hero />
       <WelcomeIntro />
       <StatBand />
+
+      {/* Credibility — why us, then the two specialties + everything else. */}
+      <HomeValueProps />
       <TwoPaths />
+
+      {/* Breadth — an immersive showcase of where we plan. */}
+      <HomeDestinations />
+
+      {/* Trust — accreditation strip on a dark band for contrast. */}
+      <HomeCredentials />
 
       {/* Featured experiences teaser */}
       <section className="section bg-paper-deep">
@@ -53,6 +67,8 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* The brand's signature promise, then how it unfolds over time. */}
+      <HomePromise />
       <ChapterTimeline />
 
       {/* Testimonials */}
