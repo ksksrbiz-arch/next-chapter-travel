@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Pinyon_Script, Mulish } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -76,7 +77,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${script.variable} ${mulish.variable}`}>
+      <head>
+        {/* Speed up the first image (LCP) and analytics handshakes. */}
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="preconnect" href="https://plausible.io" />
+      </head>
       <body className="min-h-dvh">
+        {/* Privacy-friendly, cookieless analytics by Plausible. */}
+        <Script
+          defer
+          src="https://plausible.io/js/pa-Vd3C4AtnUukMi8-1m_JyU.js"
+          strategy="afterInteractive"
+        />
+        <Script id="plausible-init" strategy="afterInteractive">
+          {`window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()`}
+        </Script>
         <JsonLd />
         <ScrollProgress />
         <a
