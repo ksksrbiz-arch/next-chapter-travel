@@ -1,20 +1,82 @@
 "use client";
 
-import { useActionState } from "react";
-import { CheckCircle2 } from "lucide-react";
+import { useActionState, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { Check } from "lucide-react";
 import { submitLead, type LeadState } from "@/app/actions/lead";
 import { Button } from "@/components/ui/button";
-import { Input, Textarea, Select, Label } from "@/components/ui/field";
+import { Input, Textarea, Select, Label, CharCounter, ValidCheck } from "@/components/ui/field";
 
 const initial: LeadState = { ok: false, message: "" };
+
+const EASE = [0.16, 1, 0.3, 1] as const;
+const MESSAGE_MAX = 600;
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+type FieldStatus = "idle" | "valid" | "invalid";
+
+function validateName(value: string): { status: FieldStatus; message?: string } {
+  const v = value.trim();
+  if (!v) return { status: "idle" };
+  if (v.length < 2) return { status: "invalid", message: "Just a touch more — what should we call you?" };
+  return { status: "valid" };
+}
+
+function validateEmail(value: string): { status: FieldStatus; message?: string } {
+  const v = value.trim();
+  if (!v) return { status: "idle" };
+  if (!EMAIL_RE.test(v))
+    return { status: "invalid", message: "Hmm, that email looks off — mind double-checking?" };
+  return { status: "valid" };
+}
+
+function SuccessCheck() {
+  const reduce = useReducedMotion();
+  return (
+    <motion.div
+      initial={reduce ? { scale: 1 } : { scale: 0 }}
+      animate={reduce ? { scale: 1 } : { scale: [0, 1.15, 1] }}
+      transition={{ duration: 0.5, ease: EASE, times: [0, 0.7, 1] }}
+      className="flex h-16 w-16 items-center justify-center rounded-full bg-sea/15"
+    >
+      <motion.span
+        initial={reduce ? { opacity: 1 } : { opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: reduce ? 0 : 0.25, duration: 0.2 }}
+      >
+        <Check className="h-8 w-8 text-sea" strokeWidth={3} />
+      </motion.span>
+    </motion.div>
+  );
+}
 
 export function LeadForm() {
   const [state, formAction, pending] = useActionState(submitLead, initial);
 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [nameTouched, setNameTouched] = useState(false);
+  const [emailTouched, setEmailTouched] = useState(false);
+
+  const nameCheck = validateName(name);
+  const emailCheck = validateEmail(email);
+
+  // Surface client errors only once a field has been touched; server errors
+  // (state.errors) act as a fallback for submissions.
+  const nameError =
+    (nameTouched && nameCheck.status === "invalid" && nameCheck.message) ||
+    state.errors?.full_name ||
+    null;
+  const emailError =
+    (emailTouched && emailCheck.status === "invalid" && emailCheck.message) ||
+    state.errors?.email ||
+    null;
+
   if (state.ok) {
     return (
       <div className="surface flex flex-col items-center px-8 py-16 text-center">
-        <CheckCircle2 className="h-12 w-12 text-sea" />
+        <SuccessCheck />
         <h3 className="mt-5 font-display text-2xl font-semibold text-ink">
           Your request is in.
         </h3>
@@ -38,15 +100,56 @@ export function LeadForm() {
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <Label htmlFor="full_name">Your name</Label>
-          <Input id="full_name" name="full_name" placeholder="First and last" required />
-          {state.errors?.full_name && (
-            <p className="mt-1 text-sm text-clay">{state.errors.full_name}</p>
+          <div className="relative">
+            <Input
+              id="full_name"
+              name="full_name"
+              placeholder="First and last"
+              required
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              onBlur={() => setNameTouched(true)}
+              invalid={!!nameError}
+              valid={nameTouched && nameCheck.status === "valid"}
+              aria-describedby={nameError ? "full_name-error" : undefined}
+              className={nameTouched && nameCheck.status === "valid" ? "pr-11" : undefined}
+            />
+            <span className="absolute right-3 top-1/2 -translate-y-1/2">
+              <ValidCheck show={nameTouched && nameCheck.status === "valid"} />
+            </span>
+          </div>
+          {nameError && (
+            <p id="full_name-error" className="mt-1 text-sm text-clay">
+              {nameError}
+            </p>
           )}
         </div>
         <div>
           <Label htmlFor="email">Email</Label>
-          <Input id="email" name="email" type="email" placeholder="you@email.com" required />
-          {state.errors?.email && <p className="mt-1 text-sm text-clay">{state.errors.email}</p>}
+          <div className="relative">
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="you@email.com"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              onBlur={() => setEmailTouched(true)}
+              invalid={!!emailError}
+              valid={emailTouched && emailCheck.status === "valid"}
+              aria-describedby={emailError ? "email-error" : undefined}
+              className={emailTouched && emailCheck.status === "valid" ? "pr-11" : undefined}
+            />
+            <span className="absolute right-3 top-1/2 -translate-y-1/2">
+              <ValidCheck show={emailTouched && emailCheck.status === "valid"} />
+            </span>
+          </div>
+          {emailError && (
+            <p id="email-error" className="mt-1 text-sm text-clay">
+              {emailError}
+            </p>
+          )}
         </div>
       </div>
 
@@ -56,7 +159,7 @@ export function LeadForm() {
           <Input id="phone" name="phone" type="tel" placeholder="(555) 555-5555" />
         </div>
         <div>
-          <Label htmlFor="interest">I'm interested in</Label>
+          <Label htmlFor="interest">I&apos;m interested in</Label>
           <Select id="interest" name="interest" defaultValue="both">
             <option value="theme-parks">Theme parks &amp; adventures</option>
             <option value="cruises">Cruises &amp; all-inclusive resorts</option>
@@ -82,11 +185,18 @@ export function LeadForm() {
       </div>
 
       <div>
-        <Label htmlFor="message">Anything else?</Label>
+        <div className="flex items-baseline justify-between">
+          <Label htmlFor="message">Anything else?</Label>
+          <CharCounter value={message} max={MESSAGE_MAX} id="message-counter" />
+        </div>
         <Textarea
           id="message"
           name="message"
           placeholder="The occasion, must-dos, dealbreakers — whatever helps us plan."
+          value={message}
+          maxLength={MESSAGE_MAX}
+          onChange={(e) => setMessage(e.target.value)}
+          aria-describedby="message-counter"
         />
       </div>
 

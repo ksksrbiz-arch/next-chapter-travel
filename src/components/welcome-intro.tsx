@@ -1,68 +1,112 @@
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Reveal } from "@/components/ui/reveal";
-import { photos, unsplash } from "@/lib/images";
+"use client";
 
-/** Home "Welcome" section — the brand's warm, plain-spoken introduction. */
+import Image from "next/image";
+import { useRef } from "react";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
+import { Button } from "@/components/ui/button";
+
+const EASE = [0.16, 1, 0.3, 1] as const;
+
+// Allowed during design only — replace with licensed assets before launch.
+const OVERWATER =
+  "https://images.unsplash.com/photo-1505881502353-a1986add3762?auto=format&fit=crop&w=1200&q=80";
+const SANTORINI =
+  "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=900&q=80";
+
 export function WelcomeIntro() {
+  const reduce = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+
+  // Track the collage as it moves through the viewport.
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  // Gentle, opposing parallax on the two layers — eased with a spring so the
+  // motion settles rather than tracking the scrollbar 1:1.
+  const tallRaw = useTransform(scrollYProgress, [0, 1], [36, -36]);
+  const insetRaw = useTransform(scrollYProgress, [0, 1], [-48, 28]);
+  const tallY = useSpring(tallRaw, { stiffness: 120, damping: 30, mass: 0.4 });
+  const insetY = useSpring(insetRaw, { stiffness: 120, damping: 30, mass: 0.4 });
+
   return (
     <section className="section bg-cream">
-      <div className="container-x grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
-        <Reveal>
+      <div className="container-x grid items-center gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
+        {/* Left — copy */}
+        <motion.div
+          initial={reduce ? false : { opacity: 0, y: 16 }}
+          whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7, ease: EASE }}
+        >
           <p className="eyebrow items-start">Welcome</p>
-          <h2 className="display-2 mt-3 max-w-[18ch] text-ink">
-            Where every journey begins a new chapter
+          <h2 className="display-2 mt-4 max-w-[18ch]">
+            Two specialists, one beautifully planned trip.
           </h2>
-
-          <div className="mt-6 space-y-5 text-lg leading-relaxed text-ink/80">
-            <p>
-              At Next Chapter Travel, we believe travel should be effortless,
-              exciting, and completely tailored to you.
-            </p>
-            <p>
-              Whether you&rsquo;re dreaming of turquoise waters, magical theme parks,
-              romantic getaways, or bucket-list adventures across the globe, we handle
-              every detail so you can focus on what matters most: the experience.
-            </p>
-            <p>
-              From the first idea to the moment you return home, we&rsquo;re here to
-              guide you every step of the way.
-            </p>
-            <p className="font-script text-3xl text-clay">
-              ✨ Your next adventure starts here.
-            </p>
-          </div>
-
-          <div className="mt-8">
+          <p className="lede mt-6 max-w-xl">
+            We started Next Chapter because the best trips don&apos;t come from a
+            booking site — they come from people who know the parks, the ships,
+            and the quiet corners in between.
+          </p>
+          <p className="mt-5 max-w-xl text-ink/75">
+            Tell us what you&apos;re dreaming about and we&apos;ll handle the
+            rest: the routing, the rooms, the reservations, and all the little
+            details that turn a vacation into a story.
+          </p>
+          <p className="font-script mt-6 text-2xl text-clay">
+            ✨ Your next adventure starts here.
+          </p>
+          <div className="mt-9">
             <Button href="/plan-your-trip" size="lg" variant="solid">
-              Start planning
+              Plan your trip
             </Button>
           </div>
-        </Reveal>
+        </motion.div>
 
-        <Reveal delay={0.1}>
-          <div className="relative">
-            {/* Layered photo collage for depth */}
-            <div className="relative aspect-[4/5] overflow-hidden rounded-xl2 border border-ink/10 shadow-lift">
+        {/* Right — layered photo collage with scroll-parallax depth */}
+        <div
+          ref={ref}
+          className="relative mx-auto aspect-[4/5] w-full max-w-md lg:mr-0"
+        >
+          {/* Tall hero image */}
+          <motion.div
+            style={reduce ? undefined : { y: tallY }}
+            className="group absolute inset-x-6 top-0 bottom-10 overflow-hidden rounded-xl2 shadow-lift ring-1 ring-ink/10"
+          >
+            <Image
+              src={OVERWATER}
+              alt="Overwater bungalows above a turquoise lagoon at golden hour"
+              fill
+              sizes="(min-width: 1024px) 32rem, 90vw"
+              className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform group-hover:scale-105"
+            />
+            {/* Warm depth wash to seat the image in the cream section */}
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/25 via-transparent to-transparent" />
+          </motion.div>
+
+          {/* Offset inset — glass-framed, sits in front for depth */}
+          <motion.div
+            style={reduce ? undefined : { y: insetY }}
+            className="group absolute -bottom-2 -right-1 w-2/5 overflow-hidden rounded-2xl bg-cream/70 p-1.5 shadow-lift ring-1 ring-ink/10 backdrop-blur-md sm:-right-4"
+          >
+            <div className="relative aspect-[3/4] overflow-hidden rounded-xl">
               <Image
-                src={unsplash(photos.overwater.id, 1200)}
-                alt={photos.overwater.alt}
+                src={SANTORINI}
+                alt="Whitewashed cliffside village above the Aegean Sea"
                 fill
-                sizes="(min-width: 1024px) 45vw, 100vw"
-                className="object-cover"
+                sizes="(min-width: 1024px) 13rem, 36vw"
+                className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform group-hover:scale-105"
               />
             </div>
-            <div className="absolute -bottom-8 -left-8 hidden aspect-square w-44 overflow-hidden rounded-xl2 border-4 border-cream shadow-lift sm:block">
-              <Image
-                src={unsplash(photos.santorini.id, 600)}
-                alt={photos.santorini.alt}
-                fill
-                sizes="11rem"
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </Reveal>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
