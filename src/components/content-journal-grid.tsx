@@ -1,107 +1,53 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
-import { unsplash, photos, type Photo } from "@/lib/images";
+import { unsplash } from "@/lib/images";
+import { articles } from "@/components/content-articles";
 
-export type JournalPost = {
-  slug: string;
-  title: string;
-  excerpt: string;
-  expert: string;
-  read: string;
-  category: string;
-  photo: Photo;
-};
-
-/**
- * SCAFFOLD — placeholder journal entries. Titles and excerpts are honest
- * previews of articles the team plans to write; they are not yet published.
- * Swap this array for a CMS / Neon `blog_posts` query (see lib/db.ts) and
- * point each card at a real /stories/[slug] page when content is ready.
- */
-export const posts: JournalPost[] = [
-  {
-    slug: "first-disney-trip",
-    title: "Planning your first Disney trip without losing your mind",
-    excerpt:
-      "The order you make decisions in matters more than any single choice. Here's the sequence we walk every first-time family through.",
-    expert: "Wendy",
-    read: "6 min",
-    category: "Theme parks",
-    photo: photos.themePark,
-  },
-  {
-    slug: "choosing-a-cruise",
-    title: "How to choose a cruise when every ship looks the same",
-    excerpt:
-      "Itinerary, ship, and cabin — in that order. Get the first one right and the rest gets a lot easier to narrow down.",
-    expert: "Jessica",
-    read: "7 min",
-    category: "Cruises",
-    photo: photos.cruise,
-  },
-  {
-    slug: "multigen-travel",
-    title: "The multi-generation trip: one vacation, every age happy",
-    excerpt:
-      "Grandparents, teens, and toddlers want different things. The trick is a base everyone shares and freedom around the edges.",
-    expert: "Wendy & Jessica",
-    read: "5 min",
-    category: "Family",
-    photo: photos.family,
-  },
-  {
-    slug: "all-inclusive-worth-it",
-    title: "Are all-inclusive resorts actually worth it?",
-    excerpt:
-      "Sometimes yes, sometimes no. It comes down to how you travel and what 'included' covers at the resort you're eyeing.",
-    expert: "Jessica",
-    read: "4 min",
-    category: "Resorts",
-    photo: photos.overwater,
-  },
-];
-
+/** Grid of published journal articles, each linking to /stories/[slug]. */
 export function JournalGrid() {
   return (
     <>
       <div className="grid gap-8 md:grid-cols-2">
-        {posts.map((p, i) => (
-          <Reveal key={p.slug} delay={(i % 2) * 0.08}>
-            {/* Not yet linked — articles are scaffolded, not published. */}
-            <article className="group flex h-full flex-col overflow-hidden rounded-xl2 border border-ink/10 bg-paper shadow-card transition-shadow hover:shadow-lift">
+        {articles.map((a, i) => (
+          <Reveal key={a.slug} delay={(i % 2) * 0.08}>
+            <Link
+              href={`/stories/${a.slug}`}
+              className="group flex h-full flex-col overflow-hidden rounded-xl2 border border-ink/10 bg-paper shadow-card transition-shadow hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
+            >
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src={unsplash(p.photo.id, 1200)}
-                  alt={p.photo.alt}
+                  src={unsplash(a.photo.id, 1200)}
+                  alt={a.photo.alt}
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"
                   className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] motion-safe:group-hover:scale-[1.04]"
                 />
                 <span className="absolute left-4 top-4 rounded-full bg-cream/90 px-3 py-1 text-xs font-semibold uppercase tracking-eyebrow text-ink shadow-card">
-                  Coming soon
+                  {a.category}
                 </span>
               </div>
               <div className="flex flex-1 flex-col p-7">
                 <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-eyebrow text-gold">
-                  <span>{p.category}</span>
-                  <span className="text-stone">· {p.read} read</span>
+                  <span>{a.dateLabel}</span>
+                  <span className="text-stone">· {a.readTime} read</span>
                 </div>
                 <h2 className="mt-3 font-display text-2xl font-semibold leading-tight text-ink">
-                  {p.title}
+                  {a.title}
                 </h2>
-                <p className="mt-3 text-sm text-ink/70">{p.excerpt}</p>
-                <p className="mt-auto pt-6 text-sm text-stone">By {p.expert}</p>
+                <p className="mt-3 text-sm text-ink/70">{a.excerpt}</p>
+                <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-clay">
+                  Read the article
+                  <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] motion-safe:group-hover:translate-x-1" />
+                </span>
               </div>
-            </article>
+            </Link>
           </Reveal>
         ))}
       </div>
       <p className="mt-12 text-center text-sm text-stone">
-        This journal is a scaffold — these entries are previews, not published
-        posts. Add a{" "}
-        <code className="text-ink/70">/stories/[slug]</code> route and wire these
-        cards to the <code className="text-ink/70">blog_posts</code> table (or a
-        CMS) to publish.
+        More articles are on the way — we add to the journal as we write.
       </p>
     </>
   );

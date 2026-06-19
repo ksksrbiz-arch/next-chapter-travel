@@ -24,12 +24,12 @@ export default function StoriesPage() {
           <Reveal>
             <p className="font-script text-2xl text-clay">The journal</p>
             <h2 className="display-2 mt-3 max-w-[18ch]">
-              An honest travel journal, in the works
+              An honest travel journal
             </h2>
             <p className="lede mt-5 max-w-2xl">
-              We&apos;re building this out as a place for the real, useful stuff
-              — the kind of advice we give over the phone. The first entries are
-              previewed below; full articles are on the way.
+              The real, useful stuff — the kind of advice we give over the
+              phone. Every article is written by the Next Chapter Travel team,
+              with no planning fee for the trip it inspires.
             </p>
           </Reveal>
           <div className="mt-12">
