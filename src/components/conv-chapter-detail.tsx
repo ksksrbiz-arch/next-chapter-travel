@@ -14,16 +14,16 @@ const stages = [
     lead: "We listen first.",
     copy: "A short form or a relaxed call — no obligation, no scripts. We learn who's traveling, what the trip is for, and what would make it unforgettable.",
     gets: [
-      "A real conversation with the specialist who'll plan your trip",
+      "A real conversation with an agent who specializes in your kind of trip",
       "Honest guidance on timing, budget, and what's realistic",
-      "Zero pressure — and no planning fee on most trips",
+      "Zero pressure — and no planning fee, ever",
     ],
   },
   {
     no: "02",
     name: "The Plan",
     lead: "We design it around you.",
-    copy: "Your specialist matches you to the right parks, ship, or resort, then builds the itinerary — dates, rooms, dining, and the details that quietly make or break a trip.",
+    copy: "We pair you with an agent who specializes in your kind of trip, then build the itinerary — dates, rooms, dining, and the details that quietly make or break a trip.",
     gets: [
       "A tailored itinerary with options, not a generic package",
       "Insider room categories, dining, and perks you can't book alone",
@@ -37,7 +37,7 @@ const stages = [
     copy: "Everything is booked and documented before you leave. If anything comes up on the road, you text one person who already knows your trip — never a call center.",
     gets: [
       "A complete, organized travel document set before departure",
-      "Direct access to your specialist while you're away",
+      "Direct access to your agent while you're away",
       "Issues handled quietly behind the scenes, not by you",
     ],
   },

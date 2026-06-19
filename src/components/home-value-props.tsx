@@ -4,29 +4,29 @@ import { Reveal, RevealGroup } from "@/components/ui/reveal";
 /**
  * "Why work with us" value-prop band. Every claim here is already true in the
  * site's existing copy — specialist expertise, every detail handled, one
- * dedicated point of contact, and no planning fee on most trips. Kept honest:
- * no invented stats or awards.
+ * dedicated agent, and no planning fee, ever. Kept honest: no invented stats
+ * or awards.
  */
 const props = [
   {
     icon: Compass,
     title: "Genuine specialist expertise",
-    copy: "Not a booking engine — two specialists who plan these trips for a living and know where the magic (and the pitfalls) hide.",
+    copy: "Not a booking engine — real agents who plan these trips for a living and know where the magic (and the pitfalls) hide.",
   },
   {
     icon: ShieldCheck,
     title: "Every detail handled",
-    copy: "Flights, rooms, dining, transfers, the little upgrades — we map it all so nothing is left to chance or to you.",
+    copy: "Resorts, rooms, dining, transfers, the little upgrades — we map it all so nothing is left to chance. (You keep your own flights, so your miles and seats stay yours.)",
   },
   {
     icon: UserRound,
     title: "One dedicated point of contact",
-    copy: "You work directly with Wendy or Jessica from first idea to welcome-home — never a call center, never a stranger.",
+    copy: "From first idea to welcome-home you have one dedicated agent who knows your trip — never a call center, never a stranger.",
   },
   {
     icon: BadgeCheck,
-    title: "No planning fee on most trips",
-    copy: "Our planning comes at no extra cost on most trips. You get expert guidance without paying a premium for it.",
+    title: "We never charge a planning fee",
+    copy: "Our planning never costs you a fee — most of our suppliers prohibit it. You get expert guidance without paying a premium for it.",
   },
 ];
 

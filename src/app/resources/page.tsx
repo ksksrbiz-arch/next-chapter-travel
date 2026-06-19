@@ -12,12 +12,13 @@ export const metadata: Metadata = {
 };
 
 const faqs = [
-  { q: "Do you charge a planning fee?", a: "For the vast majority of trips, no. We're paid by the suppliers we book. If a trip ever needs a fee, you'll know before any work starts." },
-  { q: "Which trips do you specialize in?", a: "Theme parks (Disney, Universal) and luxury cruises plus all-inclusive resorts. Wendy leads parks; Jessica leads cruises and resorts. We also plan trips that blend both." },
+  { q: "Do you charge a planning fee?", a: "Never. We're paid by the suppliers we book — and most of them actually prohibit us from charging planning fees — so you get a full-service travel agent at no added cost to you." },
+  { q: "Which trips do you specialize in?", a: "Theme parks (Disney, Universal), luxury cruises, and all-inclusive resorts are our deepest specialties — and we plan honeymoons, group trips, Europe, and bucket-list travel too. Whatever you're dreaming up, we'll match you with an agent who specializes in it." },
+  { q: "Do you book flights?", a: "We don't — and most of our clients actually prefer it that way. Booking your own air keeps you in full control of your miles, your seat choices, and any schedule changes, with no middleman if a flight shifts. We handle everything else end to end: the resort or ship, rooms, dining, transfers, and the day-to-day plan." },
   { q: "How far in advance should I book?", a: "It depends on the trip — popular Disney dates and premium cabins book up months out, while some last-minute deals are excellent. Reach out and we'll tell you the right window for yours." },
-  { q: "Can you work with travelers outside Oregon?", a: "Yes. We're Oregon-based but plan trips for travelers anywhere in the U.S. Everything is handled by phone, email, and text." },
-  { q: "What if something goes wrong during my trip?", a: "You contact your specialist directly — not a call center. Having one person who already knows your trip is the whole point." },
-  { q: "Will I pay more than booking it myself?", a: "Generally no. Our pricing matches what you'd find booking direct, and we often catch perks, room categories, or promotions you wouldn't see on your own. You get the planning for free in most cases." },
+  { q: "Can you work with travelers outside North Carolina?", a: "Yes. We're based in Lexington, North Carolina but plan trips for travelers anywhere in the U.S. Everything is handled by phone, email, and text." },
+  { q: "What if something goes wrong during my trip?", a: "You contact your agent directly — not a call center. Having one person who already knows your trip is the whole point." },
+  { q: "Will I pay more than booking it myself?", a: "Generally no. Our pricing matches what you'd find booking direct, and we often catch perks, room categories, or promotions you wouldn't see on your own — and the planning itself is always free." },
   { q: "Do I need travel insurance?", a: "We almost always recommend it, especially for cruises, international trips, and anything booked far in advance. We'll explain what a policy actually covers so you can decide — we never push a product you don't need." },
 ];
 

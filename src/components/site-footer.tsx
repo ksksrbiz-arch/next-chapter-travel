@@ -58,7 +58,7 @@ export function SiteFooter() {
           </p>
           <p className="mt-5 text-sm leading-relaxed text-ink/70">
             A boutique travel agency for theme-park adventures and luxury cruises.
-            Two specialists, one agency, every detail handled.
+            Real specialists, one agency, every detail handled.
           </p>
 
           <div className="mt-6 space-y-2 text-sm text-ink/80">

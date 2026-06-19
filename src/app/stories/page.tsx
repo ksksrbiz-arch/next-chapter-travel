@@ -16,7 +16,7 @@ export default function StoriesPage() {
       <PageHero
         eyebrow="Stories"
         title="Ideas for your next chapter."
-        intro="Planning guides, honest takes, and destination inspiration — written by the two people who plan these trips for a living."
+        intro="Planning guides, honest takes, and destination inspiration — written by agents who plan these trips for a living."
       />
 
       <section className="section">

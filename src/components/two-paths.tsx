@@ -12,7 +12,7 @@ const paths = [
   {
     no: "01",
     title: "Theme parks & adventures",
-    expert: "Wendy's specialty",
+    expert: "Theme-park experts",
     copy: "Disney, Universal, and the family trips that take real strategy to get right.",
     href: "/experiences?category=theme-parks",
     photo: photos.themePark,
@@ -20,7 +20,7 @@ const paths = [
   {
     no: "02",
     title: "Luxury cruises & resorts",
-    expert: "Jessica's specialty",
+    expert: "Cruise & resort experts",
     copy: "The right ship, cabin, and all-inclusive — matched to exactly how you vacation.",
     href: "/experiences?category=cruises",
     photo: photos.cruise,

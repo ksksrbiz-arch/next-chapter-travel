@@ -5,7 +5,7 @@ import { Reveal, RevealGroup } from "@/components/ui/reveal";
 const points = [
   {
     icon: Wallet,
-    title: "No planning fee on most trips",
+    title: "We never charge a planning fee",
     copy: "For the trips we plan most — parks, cruises, and all-inclusive escapes — our planning comes at no added cost to you.",
   },
   {

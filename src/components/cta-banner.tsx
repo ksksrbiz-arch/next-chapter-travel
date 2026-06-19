@@ -55,7 +55,7 @@ export function CtaBanner() {
             </h2>
             <p className="lede mx-auto mt-5 max-w-xl !text-cream/85">
               Share a few details and one of us will be in touch — no pressure, no
-              planning fee on most trips. Just a real plan for your next chapter.
+              planning fee, ever. Just a real plan for your next chapter.
             </p>
             <div className="mt-9 flex justify-center">
               <Button

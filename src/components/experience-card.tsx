@@ -4,9 +4,9 @@ import type { Experience } from "@/lib/types";
 import { categoryPhoto, photos, unsplash } from "@/lib/images";
 
 const expertLabel: Record<Experience["expert"], string> = {
-  wendy: "Curated by Wendy",
-  jessica: "Curated by Jessica",
-  both: "Curated by Wendy & Jessica",
+  wendy: "Theme-park experts",
+  jessica: "Cruise & resort experts",
+  both: "Curated by our travel team",
 };
 
 export function ExperienceCard({ exp }: { exp: Experience }) {
