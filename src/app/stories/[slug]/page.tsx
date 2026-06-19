@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, CalendarDays, Clock } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
 import { CtaBanner } from "@/components/cta-banner";
+import { Schema, breadcrumb, SITE_URL } from "@/components/schema";
 import { unsplash } from "@/lib/images";
 import { articles, getArticle } from "@/components/content-articles";
 
@@ -49,8 +50,32 @@ export default async function StoryPage({
     notFound();
   }
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: article.title,
+    description: article.excerpt,
+    datePublished: article.date,
+    image: unsplash(article.photo.id, 1200),
+    articleSection: article.category,
+    author: { "@type": "Organization", name: article.author },
+    publisher: {
+      "@type": "Organization",
+      name: "Next Chapter Travel, LLC",
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/icon` },
+    },
+    mainEntityOfPage: `${SITE_URL}/stories/${article.slug}`,
+  };
+  const crumbs = breadcrumb([
+    { name: "Home", path: "/" },
+    { name: "Stories", path: "/stories" },
+    { name: article.title, path: `/stories/${article.slug}` },
+  ]);
+
   return (
     <>
+      <Schema data={articleSchema} />
+      <Schema data={crumbs} />
       <header className="relative isolate overflow-hidden border-b border-ink/10">
         <div className="absolute inset-0 -z-10">
           <Image

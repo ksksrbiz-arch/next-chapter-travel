@@ -5,6 +5,7 @@ import { ArrowLeft } from "lucide-react";
 import { PageHero } from "@/components/page-hero";
 import { CtaBanner } from "@/components/cta-banner";
 import { Reveal } from "@/components/ui/reveal";
+import { Schema, breadcrumb, SITE_URL } from "@/components/schema";
 import { unsplash } from "@/lib/images";
 import { guides, getGuide } from "@/components/content-guides";
 
@@ -44,8 +45,30 @@ export default async function GuidePage({
     notFound();
   }
 
+  const guideSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: guide.title,
+    description: guide.summary,
+    image: unsplash(guide.photo.id, 1200),
+    author: { "@type": "Organization", name: "Next Chapter Travel, LLC" },
+    publisher: {
+      "@type": "Organization",
+      name: "Next Chapter Travel, LLC",
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/icon` },
+    },
+    mainEntityOfPage: `${SITE_URL}/guides/${guide.slug}`,
+  };
+  const crumbs = breadcrumb([
+    { name: "Home", path: "/" },
+    { name: "Resources", path: "/resources" },
+    { name: guide.title, path: `/guides/${guide.slug}` },
+  ]);
+
   return (
     <>
+      <Schema data={guideSchema} />
+      <Schema data={crumbs} />
       <PageHero
         eyebrow={guide.kicker}
         title={guide.title}
