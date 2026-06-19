@@ -7,7 +7,7 @@ import { Reveal, RevealGroup } from "@/components/ui/reveal";
  * sharing details: fast reply, no fee, privacy, no obligation. The privacy line
  * links to /privacy.
  */
-const assurances = [
+const assurances: { icon: typeof Clock; title: string; copy: string; href?: string }[] = [
   {
     icon: Clock,
     title: "One business day",
@@ -29,7 +29,7 @@ const assurances = [
     copy: "We use what you share only to plan your trip. See our privacy policy for the specifics.",
     href: "/privacy",
   },
-] as const;
+];
 
 export function ConvFormAssurances() {
   return (
