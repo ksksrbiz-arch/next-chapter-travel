@@ -1,9 +1,10 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Check } from "lucide-react";
 import { submitLead, type LeadState } from "@/app/actions/lead";
+import { track } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { Input, Textarea, Select, Label, CharCounter, ValidCheck } from "@/components/ui/field";
 
@@ -52,6 +53,11 @@ function SuccessCheck() {
 
 export function LeadForm() {
   const [state, formAction, pending] = useActionState(submitLead, initial);
+
+  // Record the conversion goal once, when the inquiry succeeds.
+  useEffect(() => {
+    if (state.ok) track("Lead: Submitted");
+  }, [state.ok]);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
