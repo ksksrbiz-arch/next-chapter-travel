@@ -31,15 +31,24 @@ const config: Config = {
       boxShadow: {
         card: "0 1px 2px rgba(42,33,26,0.05), 0 12px 32px -12px rgba(42,33,26,0.22)",
         lift: "0 2px 4px rgba(42,33,26,0.07), 0 28px 60px -24px rgba(42,33,26,0.32)",
+        glow: "0 0 0 1px rgba(42,33,26,0.04), 0 18px 50px -20px rgba(156,74,40,0.30)",
+      },
+      transitionTimingFunction: {
+        fluid: "cubic-bezier(0.16,1,0.3,1)",
+        spring: "cubic-bezier(0.34,1.56,0.64,1)",
       },
       keyframes: {
         "fade-up": {
           "0%": { opacity: "0", transform: "translateY(12px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        shimmer: {
+          "100%": { transform: "translateX(100%)" },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.7s cubic-bezier(0.16,1,0.3,1) both",
+        shimmer: "shimmer 1.6s infinite",
       },
     },
   },

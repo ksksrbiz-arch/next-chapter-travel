@@ -24,6 +24,8 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.001ms !important;
       scroll-behavior: auto !important;
+      transform: none !important;
+      animation: none !important;
     }
   }
   :focus-visible {
@@ -93,5 +95,37 @@
     background:
       radial-gradient(100% 80% at 82% 0%, rgba(200,128,79,0.30), transparent 55%),
       linear-gradient(160deg, #EADBBF 0%, #F3E7D2 52%, #E3CBA3 100%);
+  }
+
+  /* Subtle 2026 glassmorphism — translucent cream over a backdrop blur,
+     with a hairline ring and a soft shadow. */
+  .glass {
+    @apply rounded-xl2 border border-cream/60 bg-cream/70 shadow-card backdrop-blur-md;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.35),
+      0 1px 2px rgba(42, 33, 26, 0.05),
+      0 18px 50px -20px rgba(42, 33, 26, 0.28);
+  }
+
+  /* Skeleton placeholder — warm parchment block with a shimmer sweep. */
+  .skeleton {
+    @apply relative overflow-hidden rounded-lg bg-cream-deep;
+  }
+  .skeleton::after {
+    content: "";
+    @apply absolute inset-0 -translate-x-full animate-shimmer;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.45),
+      transparent
+    );
+  }
+}
+
+@layer utilities {
+  /* Tactile press feedback for buttons and tappable cards. */
+  .tap {
+    @apply transition-transform active:scale-[0.97];
   }
 }

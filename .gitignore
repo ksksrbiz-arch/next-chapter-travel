@@ -6,3 +6,6 @@
 .DS_Store
 *.tsbuildinfo
 next-env.d.ts
+
+# Claude Code worktrees & local state
+.claude/

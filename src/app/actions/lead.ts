@@ -28,10 +28,11 @@ export async function submitLead(
   };
 
   const errors: Record<string, string> = {};
-  if (lead.full_name.length < 2) errors.full_name = "Please tell us your name.";
-  if (!EMAIL_RE.test(lead.email)) errors.email = "Enter a valid email address.";
+  if (lead.full_name.length < 2) errors.full_name = "Just a touch more — what should we call you?";
+  if (!EMAIL_RE.test(lead.email))
+    errors.email = "Hmm, that email looks off — mind double-checking?";
   if (Object.keys(errors).length) {
-    return { ok: false, message: "Please fix the highlighted fields.", errors };
+    return { ok: false, message: "Almost there — just a couple of quick fixes below.", errors };
   }
 
   // Honeypot — bots fill hidden fields; humans don't.
@@ -66,7 +67,8 @@ export async function submitLead(
     console.error("[lead] insert failed:", err);
     return {
       ok: false,
-      message: "Something went wrong saving your request. Please email hello@nextchaptertravel.com.",
+      message:
+        "Something hiccuped on our end while saving your request. Mind emailing us at hello@nextchaptertravel.com? We'd love to help.",
     };
   }
 }
