@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ArrowLeft, ArrowRight, Star } from "lucide-react";
+import { ArrowLeft, ArrowRight, Quote, Star } from "lucide-react";
 import type { Testimonial } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -13,6 +13,24 @@ const expertLabel: Record<Testimonial["expert"], string> = {
 };
 
 const AUTOPLAY_MS = 7000;
+
+/** Refined star row — gold fill with a hairline empty remainder out of 5. */
+function Stars({ rating }: { rating: number }) {
+  return (
+    <div className="flex gap-0.5" aria-label={`${rating} out of 5 stars`}>
+      {Array.from({ length: 5 }).map((_, i) => (
+        <Star
+          key={i}
+          aria-hidden="true"
+          className={cn(
+            "h-4 w-4",
+            i < rating ? "fill-gold text-gold" : "fill-none text-ink/20",
+          )}
+        />
+      ))}
+    </div>
+  );
+}
 
 export function TestimonialCarousel({ items }: { items: Testimonial[] }) {
   const reduce = useReducedMotion();
@@ -66,7 +84,11 @@ export function TestimonialCarousel({ items }: { items: Testimonial[] }) {
       onFocus={() => setPaused(true)}
       onBlur={() => setPaused(false)}
     >
-      <div className="relative min-h-[260px] overflow-hidden sm:min-h-[220px]">
+      <Quote
+        aria-hidden="true"
+        className="mb-2 h-9 w-9 -scale-x-100 text-gold/25 sm:h-11 sm:w-11"
+      />
+      <div className="relative min-h-[280px] overflow-hidden sm:min-h-[240px]">
         <AnimatePresence mode="wait" custom={dir}>
           <motion.figure
             key={active.id}
@@ -87,18 +109,16 @@ export function TestimonialCarousel({ items }: { items: Testimonial[] }) {
             aria-live="polite"
             aria-atomic="true"
           >
-            <div className="mb-4 flex gap-0.5" aria-label={`${active.rating} out of 5`}>
-              {Array.from({ length: active.rating }).map((_, i) => (
-                <Star key={i} className="h-4 w-4 fill-gold text-gold" />
-              ))}
+            <div className="mb-4">
+              <Stars rating={active.rating} />
             </div>
-            <blockquote className="font-display text-2xl font-medium leading-snug text-ink sm:text-3xl">
+            <blockquote className="font-display text-2xl font-medium leading-snug tracking-[-0.01em] text-ink text-balance sm:text-[1.95rem] sm:leading-[1.18]">
               “{active.quote}”
             </blockquote>
-            <figcaption className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+            <figcaption className="mt-7 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm">
               <span className="font-semibold text-ink">{active.name}</span>
               {active.location && <span className="text-stone">· {active.location}</span>}
-              <span className="rounded-full bg-paper-deep px-3 py-1 text-xs font-medium uppercase tracking-wide text-gold">
+              <span className="ml-auto inline-flex items-center rounded-full border border-gold/25 bg-paper-deep/70 px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-wide text-gold">
                 {expertLabel[active.expert]}
               </span>
             </figcaption>
