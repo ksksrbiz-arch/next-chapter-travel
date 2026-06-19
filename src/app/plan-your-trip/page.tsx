@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Clock, ShieldCheck, Sparkles } from "lucide-react";
 import { PageHero } from "@/components/page-hero";
 import { LeadForm } from "@/components/lead-form";
 import { ConvTrustStrip } from "@/components/conv-trust-strip";
+import { ConvNextSteps } from "@/components/conv-next-steps";
+import { ConvFormAssurances } from "@/components/conv-form-assurances";
 import { Reveal } from "@/components/ui/reveal";
 import { photos } from "@/lib/images";
 
@@ -11,12 +12,6 @@ export const metadata: Metadata = {
   description:
     "Tell us about the trip you've been meaning to take. Theme parks, cruises, or both — one of our agents will build a plan around you.",
 };
-
-const assurances = [
-  { icon: Clock, title: "One business day", copy: "That's how fast you'll hear back from a real person — a real agent, not an auto-reply." },
-  { icon: ShieldCheck, title: "Never a planning fee", copy: "We're paid by the suppliers we book, not by you — most of them actually prohibit planning fees. Full-service planning, no added cost." },
-  { icon: Sparkles, title: "Matched to you", copy: "Your inquiry goes to an agent who specializes in the kind of trip you're planning, so you're in expert hands from day one." },
-];
 
 export default function PlanYourTripPage() {
   return (
@@ -36,6 +31,10 @@ export default function PlanYourTripPage() {
               <h2 className="display-2 mt-3 max-w-[18ch]">
                 Tell us about the trip.
               </h2>
+              <p className="lede mt-5 max-w-[46ch]">
+                Share a little and we&apos;ll match you with an agent who
+                specializes in your kind of trip — no obligation, never a fee.
+              </p>
             </Reveal>
 
             {/*
@@ -56,22 +55,16 @@ export default function PlanYourTripPage() {
 
           <Reveal delay={0.1}>
             <div className="space-y-8 lg:pl-4">
-              <h2 className="font-display text-2xl font-semibold text-ink">
-                What happens next
-              </h2>
-              <ul className="space-y-6">
-                {assurances.map((a) => (
-                  <li key={a.title} className="flex gap-4">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-paper-deep text-gold">
-                      <a.icon className="h-5 w-5" />
-                    </span>
-                    <div>
-                      <h3 className="font-semibold text-ink">{a.title}</h3>
-                      <p className="mt-1 text-sm text-ink/70">{a.copy}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+              <div>
+                <h2 className="font-display text-2xl font-semibold text-ink">
+                  Why travelers start here
+                </h2>
+                <p className="mt-2 text-sm leading-relaxed text-ink/65">
+                  A few honest promises before you share anything.
+                </p>
+              </div>
+
+              <ConvFormAssurances />
 
               <ConvTrustStrip />
 
@@ -92,6 +85,8 @@ export default function PlanYourTripPage() {
           </Reveal>
         </div>
       </section>
+
+      <ConvNextSteps />
     </>
   );
 }
