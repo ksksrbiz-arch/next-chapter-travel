@@ -35,19 +35,22 @@ export function JsonLd() {
       latitude: 35.824,
       longitude: -80.2534,
     },
-    // Placeholder availability — confirm/adjust to the agency's real hours.
+    // Open daily 9am–10pm, expressed in the business's local time (Lexington,
+    // NC — US Eastern). Adjust if Wendy's working time zone differs.
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
+        ],
         opens: "09:00",
-        closes: "17:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: "Saturday",
-        opens: "10:00",
-        closes: "14:00",
+        closes: "22:00",
       },
     ],
     areaServed: { "@type": "Country", name: "United States" },
