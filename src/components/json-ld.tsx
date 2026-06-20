@@ -28,6 +28,28 @@ export function JsonLd() {
       postalCode: "27292",
       addressCountry: "US",
     },
+    // Approximate Lexington, NC coordinates (city/ZIP centroid). Google uses
+    // the Business Profile as the source of truth for the exact pin.
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 35.824,
+      longitude: -80.2534,
+    },
+    // Placeholder availability — confirm/adjust to the agency's real hours.
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "09:00",
+        closes: "17:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Saturday",
+        opens: "10:00",
+        closes: "14:00",
+      },
+    ],
     areaServed: { "@type": "Country", name: "United States" },
     foundingLocation: {
       "@type": "Place",
