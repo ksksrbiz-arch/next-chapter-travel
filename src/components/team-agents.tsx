@@ -42,7 +42,10 @@ export function TeamAgents() {
             ? Array.from({ length: PLACEHOLDER_SLOTS }).map((_, i) => (
                 <Reveal key={i} delay={i * 0.08}>
                   <article className="flex h-full flex-col items-center rounded-xl2 border border-dashed border-ink/20 bg-cream/60 p-8 text-center">
-                    <div className="h-24 w-24 rounded-full bg-gradient-to-br from-clay/30 to-gold/25" />
+                    <div
+                      aria-hidden
+                      className="h-24 w-24 rounded-full bg-gradient-to-br from-clay/30 to-gold/25"
+                    />
                     <h3 className="mt-5 font-display text-lg font-bold text-ink/80">
                       Joining soon
                     </h3>
@@ -60,7 +63,7 @@ export function TeamAgents() {
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
                           src={a.photo}
-                          alt={`Portrait of ${a.name}`}
+                          alt={`${a.name}, ${a.role}`}
                           className="h-full w-full object-cover object-top"
                         />
                       )}
