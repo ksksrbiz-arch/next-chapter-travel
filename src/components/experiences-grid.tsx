@@ -63,7 +63,7 @@ export function ExperiencesGrid({
               onClick={() => setActive(f.value)}
               onKeyDown={(e) => onKeyDown(e, i)}
               className={cn(
-                "relative rounded-full border px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-cream",
+                "relative inline-flex min-h-[44px] items-center rounded-full border px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-cream",
                 selected
                   ? "border-ink text-paper"
                   : "border-ink/20 text-ink/70 hover:border-ink/50 hover:text-ink",
@@ -86,7 +86,18 @@ export function ExperiencesGrid({
         })}
       </div>
 
-      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Results region: labelled and announced so the tablist's effect is
+          perceivable to assistive tech. */}
+      <p className="sr-only" role="status" aria-live="polite">
+        Showing {visible.length}{" "}
+        {visible.length === 1 ? "experience" : "experiences"}
+        {active !== "all" &&
+          ` in ${filters.find((f) => f.value === active)?.label}`}
+      </p>
+      <div
+        className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        aria-label="Experiences"
+      >
         <AnimatePresence mode="popLayout" initial={false}>
           {visible.map((exp, i) => (
             <motion.div
