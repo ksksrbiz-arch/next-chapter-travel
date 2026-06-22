@@ -19,6 +19,7 @@ const cols = [
     links: [
       { href: "/about", label: "About us" },
       { href: "/team", label: "Meet the team" },
+      { href: "/join", label: "Become an agent" },
       { href: "/testimonials", label: "Testimonials" },
     ],
   },

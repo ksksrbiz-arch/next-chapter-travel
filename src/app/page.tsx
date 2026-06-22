@@ -12,6 +12,7 @@ import { ExperienceCard } from "@/components/experience-card";
 import { HomePromise } from "@/components/home-promise";
 import { TestimonialCarousel } from "@/components/testimonial-carousel";
 import { FlightPath } from "@/components/flight-path";
+import { BecomeAgent } from "@/components/become-agent";
 import { CtaBanner } from "@/components/cta-banner";
 import { Reveal } from "@/components/ui/reveal";
 import { experiences, testimonials } from "@/lib/data";
@@ -102,6 +103,9 @@ export default function HomePage() {
           </Reveal>
         </div>
       </section>
+
+      {/* Recruitment — the agency is growing; invite prospective agents in. */}
+      <BecomeAgent />
 
       <CtaBanner />
     </>
