@@ -39,6 +39,7 @@ export function PageHero({
       {hasPhoto ? (
         <>
           <motion.div
+            aria-hidden
             className="absolute inset-0 -z-10"
             style={reduce ? undefined : { y, scale }}
           >
@@ -51,10 +52,14 @@ export function PageHero({
               className="object-cover"
             />
           </motion.div>
-          <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink/85 via-ink/55 to-ink/30" />
+          {/* Contrast overlay so heading/lede text stays AA-legible over the photo. */}
+          <div
+            aria-hidden
+            className="absolute inset-0 -z-10 bg-gradient-to-t from-ink/85 via-ink/55 to-ink/30"
+          />
         </>
       ) : (
-        <div className="horizon-soft absolute inset-0 -z-10" />
+        <div aria-hidden className="horizon-soft absolute inset-0 -z-10" />
       )}
 
       <div className="container-x pb-16 pt-[calc(var(--header-h)*0.4+3rem)] sm:pb-20 sm:pt-[calc(var(--header-h)*0.4+4rem)]">
