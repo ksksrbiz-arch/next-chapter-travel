@@ -33,13 +33,16 @@ export function JournalGrid() {
                   <span>{a.dateLabel}</span>
                   <span className="text-stone">· {a.readTime} read</span>
                 </div>
-                <h2 className="mt-3 font-display text-2xl font-semibold leading-tight text-ink">
+                <h3 className="mt-3 font-display text-2xl font-semibold leading-tight text-ink">
                   {a.title}
-                </h2>
+                </h3>
                 <p className="mt-3 text-sm text-ink/70">{a.excerpt}</p>
                 <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-clay">
                   Read the article
-                  <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] motion-safe:group-hover:translate-x-1" />
+                  <ArrowRight
+                    className="h-4 w-4 transition-transform duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] motion-safe:group-hover:translate-x-1"
+                    aria-hidden
+                  />
                 </span>
               </div>
             </Link>

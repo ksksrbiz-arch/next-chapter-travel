@@ -42,7 +42,7 @@ export default function TestimonialsPage() {
       <section className="section">
         <div className="container-x">
           <Reveal>
-            <p className="eyebrow">In their words</p>
+            <h2 className="eyebrow">In their words</h2>
           </Reveal>
 
           <RevealGroup className="mt-8 grid gap-4 sm:grid-cols-3" stagger={0.08}>
