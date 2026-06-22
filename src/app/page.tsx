@@ -36,6 +36,9 @@ export default function HomePage() {
       <HomeValueProps />
       <TwoPaths />
 
+      {/* Recruitment — the agency is growing; invite prospective agents in early. */}
+      <BecomeAgent />
+
       {/* Signature flourish — a dotted flight path drawing toward the showcase. */}
       <FlightPath className="-mb-6 mt-4" />
 
@@ -103,9 +106,6 @@ export default function HomePage() {
           </Reveal>
         </div>
       </section>
-
-      {/* Recruitment — the agency is growing; invite prospective agents in. */}
-      <BecomeAgent />
 
       <CtaBanner />
     </>
