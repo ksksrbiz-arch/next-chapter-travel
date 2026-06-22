@@ -15,7 +15,7 @@ function HeroBand() {
 
 export default function ExperienceDetailLoading() {
   return (
-    <div aria-busy="true" aria-label="Loading">
+    <div role="status" aria-busy="true" aria-label="Loading experience">
       <HeroBand />
 
       <div className="container-x pt-8">
