@@ -18,6 +18,7 @@ const body = `# Next Chapter Travel
 - Email: nextchaptertravel26@gmail.com
 - Instagram: https://www.instagram.com/nextchaptertravelllc
 - Co-owners: Wendy (Co-Owner & COO, theme-park specialist) and Jessica (Co-Owner & CFO, cruise & resort specialist), plus a growing team of specialist agents.
+- Hiring: The agency is actively recruiting new travel agents. No experience required — training, mentorship, supplier relationships, and tools are provided. Agents work remotely on their own schedule and earn commission. Apply via the /join page.
 - Planning fee: None, ever. The agency is paid by the suppliers it books; most suppliers prohibit consumer planning fees.
 - Flights: The agency does not book air travel. Clients book their own flights and keep control of miles, seats, and schedule. The agency handles everything else (resorts, ships, rooms, dining, transfers, day-to-day plans).
 - Specialties: Disney & Universal theme parks, luxury cruises, all-inclusive resorts, honeymoons & destination weddings, multi-generational and group travel, Europe and bucket-list trips.
@@ -33,6 +34,7 @@ const body = `# Next Chapter Travel
 - [Plan your trip](${SITE}/plan-your-trip): start an inquiry (no obligation, no fee).
 - [Experiences](${SITE}/experiences): sample trips across parks, cruises, all-inclusive, family, and more.
 - [How it works](${SITE}/how-it-works): the four-step planning process.
+- [Become an agent](${SITE}/join): join the agency as a travel agent — training, mentorship, and how to apply.
 - [About](${SITE}/about): the agency story and values.
 - [Meet the team](${SITE}/team): the co-owners and agents.
 - [Testimonials](${SITE}/testimonials): traveler reviews.

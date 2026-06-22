@@ -12,7 +12,7 @@ const nav = [
   { href: "/experiences", label: "Experiences" },
   { href: "/how-it-works", label: "How it works" },
   { href: "/about", label: "About" },
-  { href: "/stories", label: "Stories" },
+  { href: "/join", label: "Become an agent" },
 ];
 
 const EASE = [0.16, 1, 0.3, 1] as const;
