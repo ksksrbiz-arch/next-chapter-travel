@@ -83,7 +83,7 @@ const faqs = [
   },
   {
     q: "Is this a job or my own business?",
-    a: "You run your own travel business under the Next Chapter Travel umbrella — with our brand, tools, suppliers, and support behind you. We'll walk you through exactly how it works during your conversation with us.",
+    a: "It's your own business. Agents are independent contractors (1099) running their own travel business under the Next Chapter Travel umbrella — with our brand, tools, suppliers, and support behind you. We'll walk you through exactly how it works during your conversation with us.",
   },
   {
     q: "How do agents get paid?",
@@ -98,8 +98,8 @@ const faqs = [
     a: "Anywhere in the United States. The whole business runs by phone, email, and text, so you can plan trips from home, on the road, or wherever you are.",
   },
   {
-    q: "Are there any start-up costs?",
-    a: "There are some standard industry costs to get set up and certified. We're upfront about all of it — we'll go through exactly what's involved and what's included before you commit to anything.",
+    q: "Does it cost anything to join?",
+    a: "There's no cost to join Next Chapter Travel. Some standard industry certification and setup costs can apply as you get established, and we'll point you to those — but joining the agency itself is free. We're upfront about all of it before you commit to anything.",
   },
 ];
 
