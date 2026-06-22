@@ -8,6 +8,7 @@ import { JsonLd } from "@/components/json-ld";
 import { CookieConsent } from "@/components/cookie-consent";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { BackToTop } from "@/components/back-to-top";
+import { Analytics } from "@vercel/analytics/next";
 
 // Pinyon Script — the flowing brand hand used for section kickers & the wordmark.
 const script = Pinyon_Script({
@@ -105,6 +106,7 @@ export default function RootLayout({
         <SiteFooter />
         <CookieConsent />
         <BackToTop />
+        <Analytics />
       </body>
     </html>
   );
