@@ -50,6 +50,16 @@ export function Button({
   ) : null;
 
   if (href) {
+    // External links (e.g. the Typeform application) open in a new tab via a
+    // plain anchor; internal routes use next/link for client navigation.
+    if (/^https?:\/\//.test(href)) {
+      return (
+        <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
+          {spinner}
+          {children}
+        </a>
+      );
+    }
     return (
       <Link href={href} className={classes}>
         {spinner}

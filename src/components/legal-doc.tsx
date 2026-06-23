@@ -54,7 +54,7 @@ export function LegalDoc({
           <aside className="hidden lg:block">
             <div className="sticky top-28">
               <p className="chapter-no text-clay">On this page</p>
-              <nav className="mt-4 border-l border-ink/10">
+              <nav aria-label="On this page" className="mt-4 border-l border-ink/10">
                 {sections.map((s, i) => (
                   <a
                     key={s.id}
@@ -72,6 +72,31 @@ export function LegalDoc({
 
           {/* Body */}
           <div className="max-w-prose">
+            {/* Mobile-only jump list (the sticky TOC above is desktop-only). A native
+                <details> keeps it collapsible and keyboard-operable with no JS. */}
+            <details className="group mb-8 rounded-xl2 border border-ink/10 bg-cream/40 lg:hidden">
+              <summary className="flex cursor-pointer items-center justify-between gap-2 px-4 py-3 text-sm font-semibold text-ink marker:content-none [&::-webkit-details-marker]:hidden">
+                On this page
+                <span
+                  aria-hidden
+                  className="text-clay transition-transform group-open:rotate-180"
+                >
+                  ▾
+                </span>
+              </summary>
+              <nav aria-label="On this page" className="border-t border-ink/10 px-2 pb-2">
+                {sections.map((s, i) => (
+                  <a
+                    key={s.id}
+                    href={`#${s.id}`}
+                    className="flex min-h-[44px] items-center gap-2 rounded-lg px-2 text-sm text-ink/70 transition-colors hover:text-clay"
+                  >
+                    <span className="tabular-nums text-ink/40">{String(i + 1).padStart(2, "0")}</span>
+                    {s.heading}
+                  </a>
+                ))}
+              </nav>
+            </details>
             <p className="text-sm text-stone lg:hidden">Last updated: {updated}</p>
             <div className="mt-2 space-y-12 lg:mt-0">
               {sections.map((s, i) => (

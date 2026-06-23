@@ -81,7 +81,11 @@ export function LeadForm() {
 
   if (state.ok) {
     return (
-      <div className="surface flex flex-col items-center px-8 py-16 text-center">
+      <div
+        role="status"
+        aria-live="polite"
+        className="surface flex flex-col items-center px-8 py-16 text-center"
+      >
         <SuccessCheck />
         <h3 className="mt-5 font-display text-2xl font-semibold text-ink">
           Your request is in.
@@ -112,6 +116,7 @@ export function LeadForm() {
               name="full_name"
               placeholder="First and last"
               required
+              aria-required="true"
               value={name}
               onChange={(e) => setName(e.target.value)}
               onBlur={() => setNameTouched(true)}
@@ -125,7 +130,7 @@ export function LeadForm() {
             </span>
           </div>
           {nameError && (
-            <p id="full_name-error" className="mt-1 text-sm text-clay">
+            <p id="full_name-error" role="alert" className="mt-1 text-sm text-clay">
               {nameError}
             </p>
           )}
@@ -139,6 +144,7 @@ export function LeadForm() {
               type="email"
               placeholder="you@email.com"
               required
+              aria-required="true"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               onBlur={() => setEmailTouched(true)}
@@ -152,7 +158,7 @@ export function LeadForm() {
             </span>
           </div>
           {emailError && (
-            <p id="email-error" className="mt-1 text-sm text-clay">
+            <p id="email-error" role="alert" className="mt-1 text-sm text-clay">
               {emailError}
             </p>
           )}
@@ -207,11 +213,11 @@ export function LeadForm() {
       </div>
 
       {state.message && !state.ok && (
-        <p className="text-sm text-clay">{state.message}</p>
+        <p role="alert" className="text-sm text-clay">{state.message}</p>
       )}
 
       <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:items-center">
-        <Button type="submit" size="lg" disabled={pending} className="sm:w-auto">
+        <Button type="submit" size="lg" loading={pending} className="sm:w-auto">
           {pending ? "Sending…" : "Send my request"}
         </Button>
         <p className="text-xs text-stone">

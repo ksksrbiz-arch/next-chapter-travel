@@ -19,6 +19,7 @@ const cols = [
     links: [
       { href: "/about", label: "About us" },
       { href: "/team", label: "Meet the team" },
+      { href: "/join", label: "Become an agent" },
       { href: "/testimonials", label: "Testimonials" },
     ],
   },
@@ -119,13 +120,13 @@ export function SiteFooter() {
             <h3 className="text-xs font-bold uppercase tracking-eyebrow text-stone">
               {col.title}
             </h3>
-            <ul className="mt-4 space-y-1">
+            <ul className="mt-3 sm:mt-4">
               {col.links.map((l) => (
                 <li key={l.href}>
                   <Link
                     href={l.href}
                     className={cn(
-                      "inline-block rounded-sm py-1.5 text-sm text-ink/75 underline-offset-4 transition-colors hover:text-clay hover:underline",
+                      "inline-flex min-h-[44px] items-center rounded-sm py-1 text-sm text-ink/75 underline-offset-4 transition-colors hover:text-clay hover:underline",
                       focusRing,
                     )}
                   >
@@ -158,14 +159,26 @@ export function SiteFooter() {
       <div className="border-t border-ink/15">
         <div className="container-x flex flex-col items-center justify-between gap-4 py-6 text-xs text-ink/60 sm:flex-row">
           <p>© {new Date().getFullYear()} Next Chapter Travel, LLC. All rights reserved.</p>
-          <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
-            <Link href="/terms" className={cn("transition-colors hover:text-clay", focusRing)}>
+          <nav
+            aria-label="Legal"
+            className="flex flex-wrap items-center justify-center gap-x-5"
+          >
+            <Link
+              href="/terms"
+              className={cn("inline-flex min-h-[44px] items-center rounded-sm transition-colors hover:text-clay", focusRing)}
+            >
               Terms of Service
             </Link>
-            <Link href="/privacy" className={cn("transition-colors hover:text-clay", focusRing)}>
+            <Link
+              href="/privacy"
+              className={cn("inline-flex min-h-[44px] items-center rounded-sm transition-colors hover:text-clay", focusRing)}
+            >
               Privacy Policy
             </Link>
-            <Link href="/faq" className={cn("transition-colors hover:text-clay", focusRing)}>
+            <Link
+              href="/faq"
+              className={cn("inline-flex min-h-[44px] items-center rounded-sm transition-colors hover:text-clay", focusRing)}
+            >
               FAQ
             </Link>
           </nav>

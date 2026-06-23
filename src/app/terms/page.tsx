@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/terms" },
 };
 
-const UPDATED = "June 19, 2026";
+const UPDATED = "June 22, 2026";
 
 const sections: LegalSection[] = [
   {

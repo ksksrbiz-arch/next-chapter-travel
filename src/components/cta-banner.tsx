@@ -39,6 +39,7 @@ export function CtaBanner() {
           >
             {/* Parallax gradient backdrop */}
             <motion.div
+              aria-hidden
               style={reduce ? undefined : { y, scale }}
               className="horizon absolute inset-[-12%] -z-10"
             />

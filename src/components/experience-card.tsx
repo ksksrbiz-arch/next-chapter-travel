@@ -17,12 +17,14 @@ export function ExperienceCard({ exp }: { exp: Experience }) {
       <Link
         href={`/experiences/${exp.slug}`}
         id={exp.slug}
+        aria-label={`Build my ${exp.title} trip — ${exp.location}`}
         className="group flex h-full scroll-mt-28 flex-col overflow-hidden rounded-xl2 border border-ink/10 bg-cream shadow-card transition-shadow duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
       >
       <div className="relative aspect-[4/3] overflow-hidden">
+        {/* Decorative within the card — the explicit aria-label names the link. */}
         <Image
           src={unsplash(photo.id, 800)}
-          alt={photo.alt}
+          alt=""
           fill
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform motion-safe:group-hover:scale-105"

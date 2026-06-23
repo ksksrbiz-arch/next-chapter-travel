@@ -93,9 +93,9 @@ export default async function StoryPage({
           <Reveal>
             <Link
               href="/stories"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-cream/85 transition-colors hover:text-cream"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-cream/85 transition-colors hover:text-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
             >
-              <ArrowLeft className="h-4 w-4" />
+              <ArrowLeft className="h-4 w-4" aria-hidden />
               Back to the journal
             </Link>
             <p className="eyebrow mt-6 text-cream/90">{article.category}</p>
@@ -134,9 +134,9 @@ export default async function StoryPage({
               </p>
               <Link
                 href="/stories"
-                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-clay transition-colors hover:text-ink"
+                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-clay transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
               >
-                <ArrowLeft className="h-4 w-4" />
+                <ArrowLeft className="h-4 w-4" aria-hidden />
                 More from the journal
               </Link>
             </div>

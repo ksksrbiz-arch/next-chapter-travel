@@ -83,7 +83,7 @@ export default async function ExperienceDetailPage({
         <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-ink/70">
           <Link
             href="/experiences"
-            className="tap inline-flex items-center gap-1.5 font-medium text-clay transition-colors hover:text-ink"
+            className="tap inline-flex min-h-[44px] items-center gap-1.5 font-medium text-clay transition-colors hover:text-ink"
           >
             <ArrowLeft className="h-4 w-4" aria-hidden />
             All experiences

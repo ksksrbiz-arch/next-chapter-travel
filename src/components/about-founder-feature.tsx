@@ -21,12 +21,10 @@ export function AboutFounderFeature({ member }: { member: TeamMember }) {
         <p className="leading-relaxed text-ink/80">
           {specialtyLine[member.slug] ?? member.bio}
         </p>
-        <Button
-          href="/plan-your-trip"
-          variant="solid"
-          className="mt-6"
-        >
+        <Button href="/plan-your-trip" variant="solid" className="mt-6">
           Start planning
+          {/* Disambiguates the two identical CTAs for screen readers. */}
+          <span className="sr-only"> a trip with {member.name}</span>
         </Button>
       </div>
     </div>

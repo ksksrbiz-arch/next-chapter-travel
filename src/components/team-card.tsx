@@ -17,13 +17,14 @@ export function TeamCard({ member }: { member: TeamCardMember }) {
         {member.photo ? (
           <Image
             src={member.photo}
-            alt={`Portrait of ${member.name}`}
+            alt={`${member.name}, ${member.role}`}
             fill
             sizes="(min-width: 768px) 50vw, 100vw"
             className="object-cover object-top transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] motion-safe:group-hover:scale-[1.05]"
           />
         ) : (
           <div
+            aria-hidden
             className={`h-full w-full bg-gradient-to-br ${tint[member.expert]} transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] motion-safe:group-hover:scale-[1.05]`}
           />
         )}
